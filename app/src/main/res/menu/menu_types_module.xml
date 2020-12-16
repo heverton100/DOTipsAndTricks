@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/menuTodosModulos"
+            android:title="All"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menuDano"
+            android:title="@string/menu_dano"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menuEscudo"
+            android:title="@string/menu_escudo"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menuHP"
+            android:title="@string/menu_hp"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menuEspecial"
+            android:title="@string/menu_especial"
+            app:showAsAction="never" />
+    </group>
+</menu>

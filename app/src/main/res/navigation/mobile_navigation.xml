@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_modulo"
+        android:name="com.example.dotipsandtricks.ui.module.ModuleFragment"
+        android:label="@string/menu_modulo"
+        tools:layout="@layout/fragment_module" />
+
+    <fragment
+        android:id="@+id/nav_naves"
+        android:name="com.example.dotipsandtricks.ui.ship.ShipFragment"
+        android:label="@string/menu_nave"
+        tools:layout="@layout/fragment_ship" />
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.dotipsandtricks.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_itens"
+        android:name="com.example.dotipsandtricks.ui.items.category.CategoryItemsFragment"
+        android:label="@string/menu_itens"
+        tools:layout="@layout/fragment_category_items" />
+
+    <fragment
+        android:id="@+id/nav_skilltree"
+        android:name="com.example.dotipsandtricks.ui.skilltree.CategoryPPsFragment"
+        android:label="@string/menu_skilltree"
+        tools:layout="@layout/fragment_category_pps" />
+
+</navigation>

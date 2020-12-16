@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/menuTodosSkill"
+            android:title="All"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menuSkillOffensive"
+            android:title="@string/menu_skill_offensive"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menuSkillDefensive"
+            android:title="@string/menu_skill_defensive"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/menuSkillResource"
+            android:title="@string/menu_skill_resource"
+            app:showAsAction="never" />
+    </group>
+</menu>
