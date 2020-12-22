@@ -8,11 +8,15 @@ import com.example.dotipsandtricks.model.Ships;
 import com.example.dotipsandtricks.model.PointsPilot;
 import com.example.dotipsandtricks.model.Skilllevels;
 import com.example.dotipsandtricks.model.Skilltree;
+import com.example.dotipsandtricks.model.Users;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface PostService {
@@ -61,6 +65,22 @@ public interface PostService {
 
     @GET("getSkilltree.php")
     Call<List<Skilltree>> getSkilltreefiltro(@Query("filtro") String filtro);
+
+    @POST("user/login.php")
+    @FormUrlEncoded
+    Call<Users> login(@Field("useremail") String useremail,
+                         @Field("pass") String userpass);
+
+    @POST("user/register.php")
+    @FormUrlEncoded
+    Call<Users> register(@Field("username") String username,
+                        @Field("useremail") String useremail,
+                        @Field("pass") String userpass);
+
+    @POST("user/forgotpass.php")
+    @FormUrlEncoded
+    Call<Users> forgotpass(@Field("useremail") String useremail,
+                         @Field("pass") String userpass);
 
 }
 

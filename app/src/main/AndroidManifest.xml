@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.skilltree.SkilltreeActivity"></activity>
+        <activity android:name=".ui.user.ForgotPassActivity"/>
+        <activity android:name=".ui.user.RegisterActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".ui.user.LoginActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".ui.skilltree.SkilltreeActivity" />
         <activity android:name=".ui.skilltree.PointsPilotActivity" />
         <activity android:name=".ui.items.ItemDetailsActivity" />
         <activity android:name=".ui.items.ItemsActivity" />

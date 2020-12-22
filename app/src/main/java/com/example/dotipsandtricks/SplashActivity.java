@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.dotipsandtricks.ui.user.LoginActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -23,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void mostrarLogin() {
         Intent intent = new Intent(SplashActivity.this,
-                MainActivity.class);
+                LoginActivity.class);
         startActivityForResult(intent,1);
         finish();
     }
