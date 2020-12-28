@@ -78,7 +78,7 @@ public class ShipAdapter extends RecyclerView.Adapter<ShipAdapter.ViewHolder> {
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(int pos) {
-                openDetailActivity(nave.getIdNave().toString());
+                openDetailActivity(nave.getIdNave().toString(),nave.getNome());
             }
         });
     }
@@ -95,9 +95,10 @@ public class ShipAdapter extends RecyclerView.Adapter<ShipAdapter.ViewHolder> {
     }
 
 
-    public void openDetailActivity(String x) {
+    public void openDetailActivity(String x,String y) {
         Intent i=new Intent(mContext, ShipActivity.class);
         i.putExtra("IDNAVE", Integer.parseInt(x));
+        i.putExtra("SHIPNAME",y);
         mContext.startActivity(i);
     }
 

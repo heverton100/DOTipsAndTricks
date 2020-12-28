@@ -72,6 +72,10 @@
 
     <string name="cat_pp_st">Skill Tree</string>
     <string name="cat_pp_cost">Cost Points Pilot</string>
+    <string name="title_activity_ship2">Ship Activity</string>
+    <string name="tab_text_1">Details</string>
+    <string name="tab_text_2">Abilities</string>
+    <string name="tab_text_3">Modules</string>
 
 
 </resources>

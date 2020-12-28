@@ -11,14 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.user.ForgotPassActivity"/>
-        <activity android:name=".ui.user.RegisterActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".ui.user.LoginActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".ui.ship.ShipActivity"
+            android:label="@string/title_activity_ship2"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.user.ForgotPassActivity" />
+        <activity
+            android:name=".ui.user.RegisterActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".ui.user.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".ui.skilltree.SkilltreeActivity" />
         <activity android:name=".ui.skilltree.PointsPilotActivity" />
         <activity android:name=".ui.items.ItemDetailsActivity" />
         <activity android:name=".ui.items.ItemsActivity" />
-        <activity android:name=".ui.ship.ShipActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">

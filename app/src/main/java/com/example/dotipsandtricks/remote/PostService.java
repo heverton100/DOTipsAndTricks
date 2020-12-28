@@ -4,6 +4,7 @@ import com.example.dotipsandtricks.model.CategoryItem;
 import com.example.dotipsandtricks.model.Items;
 import com.example.dotipsandtricks.model.Modules;
 import com.example.dotipsandtricks.model.Assembly;
+import com.example.dotipsandtricks.model.ShipAbilities;
 import com.example.dotipsandtricks.model.Ships;
 import com.example.dotipsandtricks.model.PointsPilot;
 import com.example.dotipsandtricks.model.Skilllevels;
@@ -81,6 +82,9 @@ public interface PostService {
     @FormUrlEncoded
     Call<Users> forgotpass(@Field("useremail") String useremail,
                          @Field("pass") String userpass);
+
+    @GET("getAbilities.php")
+    Call<List<ShipAbilities>> getAbilities(@Query("naveID") Integer naveID);
 
 }
 

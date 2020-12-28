@@ -32,7 +32,7 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
 
     List<Ships> naves;
 
-    ShipsModuleAdapter shipsModuleAdapter;
+    ModuleShipsAdapter shipsModuleAdapter;
     PostService mService;
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -120,7 +120,7 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
 
                             if(response.isSuccessful()) {
                                 naves = response.body();
-                                shipsModuleAdapter = new ShipsModuleAdapter(mContext, R.layout.list_modules_ship, naves);
+                                shipsModuleAdapter = new ModuleShipsAdapter(mContext, R.layout.cell_modules_ship, naves);
                                 listView.setAdapter(shipsModuleAdapter);
                             }else {
                                 int statusCode = response.code();

@@ -1,137 +1,67 @@
 package com.example.dotipsandtricks.ui.ship;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+
 import com.example.dotipsandtricks.R;
-import com.example.dotipsandtricks.model.Modules;
-import com.example.dotipsandtricks.model.Ships;
-import com.example.dotipsandtricks.remote.ApiUtils;
-import com.example.dotipsandtricks.remote.PostService;
-import com.squareup.picasso.Picasso;
+import com.example.dotipsandtricks.ui.ship.shiptabbed.ShipAbilitiesFragment;
+import com.example.dotipsandtricks.ui.ship.shiptabbed.ShipDetailsFragment;
+import com.example.dotipsandtricks.ui.ship.shiptabbed.ShipModulesFragment;
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.example.dotipsandtricks.ui.ship.shiptabbed.SectionsPagerAdapter;
+
+import java.util.ArrayList;
 import java.util.List;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ShipActivity extends AppCompatActivity {
 
-    TextView titleTxt,hpTxt,velocTxt,cargaTxt,habTxt,bonusTxt,lasersTxt,geradoresTxt,extrasTxt,modulosTxt;
-    ImageView naveIv;
-    ListView listView;
-    List<Modules> modulos;
-    ModulesShipAdapter modulesShipAdapter;
-    private PostService mService;
+    private List<Fragment> fragments;
+    ShipDetailsFragment fragment1;
+    ShipAbilitiesFragment fragment2;
+    ShipModulesFragment fragment3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ship);
 
-        getSupportActionBar().setTitle("Details");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        fragment1 = new ShipDetailsFragment();
+        fragment2 = new ShipAbilitiesFragment();
+        fragment3 = new ShipModulesFragment();
 
-        listView = findViewById(R.id.listModulosDT);
+        fragments = new ArrayList<>();
+        fragments.add(fragment1);
+        fragments.add(fragment2);
+        fragments.add(fragment3);
 
-        mService = ApiUtils.getPostService();
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments);
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = findViewById(R.id.tabs);
+        tabs.setupWithViewPager(viewPager);
 
-        titleTxt = findViewById(R.id.txtNaveDT);
-        hpTxt = findViewById(R.id.txtHpDT);
-        velocTxt = findViewById(R.id.txtVelocDT);
-        cargaTxt = findViewById(R.id.txtCargaDT);
-        habTxt = findViewById(R.id.txtHabDT);
-        bonusTxt = findViewById(R.id.txtBonusDT);
-        lasersTxt = findViewById(R.id.txtLasersDT);
-        geradoresTxt = findViewById(R.id.txtGeradoresDT);
-        extrasTxt = findViewById(R.id.txtExtrasDT);
-        modulosTxt = findViewById(R.id.txtModulosDT);
-        naveIv = findViewById(R.id.ivNaveDT);
+/*        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });*/
 
         Intent i=this.getIntent();
-        Integer title = i.getIntExtra("IDNAVE",0);
+        String title = i.getStringExtra("SHIPNAME");
 
-        Call<Ships> call = mService.getNave(title);
-
-        call.enqueue(new Callback<Ships>() {
-            @Override
-            public void onResponse(Call<Ships> call, Response<Ships> response) {
-
-                if(response.isSuccessful()) {
-
-                    titleTxt.setText(response.body().getNome());
-                    hpTxt.setText(response.body().getPontosHp().toString());
-                    velocTxt.setText(response.body().getVelocidade().toString());
-                    cargaTxt.setText(response.body().getCarga().toString());
-                    habTxt.setText(response.body().getTemHabilidade());
-                    bonusTxt.setText(response.body().getBonus());
-                    lasersTxt.setText(response.body().getSlotsLaser().toString());
-                    geradoresTxt.setText(response.body().getSlotsGeradores().toString());
-                    extrasTxt.setText(response.body().getSlotsExtras().toString());
-                    modulosTxt.setText(response.body().getSlotsModulosNave().toString());
-
-                    Picasso.get().load(response.body().getImageNave()).into(naveIv);
-
-                }else {
-                    int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Ships> call, Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST"+t);
-            }
-        });
-
-        retornaModulos(title);
-
-    }
-
-    private void retornaModulos(Integer naveid) {
-
-        Call<List<Modules>> call = mService.getNaveModulos(naveid);
-
-        call.enqueue(new Callback<List<Modules>>() {
-            @Override
-            public void onResponse(Call<List<Modules>> call, Response<List<Modules>> response) {
-
-                if(response.isSuccessful()) {
-
-                    if (response.body().get(0).getNomeModulo().equals("TESTE")) {
-                        Toast.makeText(getApplicationContext(),"This ship does not have modules!",Toast.LENGTH_SHORT).show();
-                    }else{
-                        modulos = response.body();
-                        modulesShipAdapter = new ModulesShipAdapter(getApplicationContext(), R.layout.list_modules_ship, modulos);
-                        listView.setAdapter(modulesShipAdapter);
-
-                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                                Toast.makeText(ShipActivity.this,"Effect: "+modulos.get(i).getDescricaoModulo(),Toast.LENGTH_LONG).show();
-                            }
-                        });
-                    }
-
-                }else {
-                    int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Modules>> call, Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
-            }
-        });
-
+        TextView textView = findViewById(R.id.title);
+        textView.setText(title);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -146,5 +76,4 @@ public class ShipActivity extends AppCompatActivity {
         }
         return true;
     }
-
 }

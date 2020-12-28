@@ -12,13 +12,13 @@ import com.example.dotipsandtricks.R;
 import com.example.dotipsandtricks.model.Ships;
 import java.util.List;
 
-public class ShipsModuleAdapter extends ArrayAdapter<Ships> {
+public class ModuleShipsAdapter extends ArrayAdapter<Ships> {
 
     List<Ships> naves;
     Context context;
     int resource;
 
-    public ShipsModuleAdapter(@NonNull Context context, int resource, @NonNull List<Ships> naves) {
+    public ModuleShipsAdapter(@NonNull Context context, int resource, @NonNull List<Ships> naves) {
         super(context, resource, naves);
 
         this.naves=naves;
