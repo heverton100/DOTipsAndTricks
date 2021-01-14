@@ -3,6 +3,7 @@
     package="com.example.dotipsandtricks">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -11,21 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activities.tips.NewTipActivity"/>
+        <activity android:name=".ui.activities.tips.MyTipsActivity" />
         <activity
-            android:name=".ui.ship.ShipActivity"
+            android:name=".ui.activities.ship.ShipActivity"
             android:label="@string/title_activity_ship2"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ui.user.ForgotPassActivity" />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.activities.user.ForgotPassActivity" />
         <activity
-            android:name=".ui.user.RegisterActivity"
+            android:name=".ui.activities.user.RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".ui.user.LoginActivity"
+            android:name=".ui.activities.user.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".ui.skilltree.SkilltreeActivity" />
-        <activity android:name=".ui.skilltree.PointsPilotActivity" />
-        <activity android:name=".ui.items.ItemDetailsActivity" />
-        <activity android:name=".ui.items.ItemsActivity" />
+        <activity android:name=".ui.activities.item.ItemDetailsActivity" />
+        <activity android:name=".ui.activities.item.ItemsActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".ui.ship.shiptabbed.ShipDetailsFragment">
+    tools:context=".ui.fragments.shiptabbed.ShipDetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     android:id="@+id/cvHP"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     app:cardBackgroundColor="#CFCFCF"
                     app:cardCornerRadius="4dp"
                     app:contentPadding="8dp">
@@ -112,7 +112,7 @@
                     android:id="@+id/cvCarga"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     app:cardBackgroundColor="#CFCFCF"
                     app:cardCornerRadius="4dp"
                     app:contentPadding="8dp">
@@ -223,7 +223,7 @@
                     android:id="@+id/cvLasers"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     app:cardBackgroundColor="#CFCFCF"
                     app:cardCornerRadius="4dp"
                     app:contentPadding="8dp">
@@ -293,7 +293,7 @@
                     android:id="@+id/cvExtras"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     app:cardBackgroundColor="#CFCFCF"
                     app:cardCornerRadius="4dp"
                     app:contentPadding="8dp">

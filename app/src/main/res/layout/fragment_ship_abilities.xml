@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ship.shiptabbed.ShipAbilitiesFragment">
+    tools:context=".ui.fragments.shiptabbed.ShipAbilitiesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvShipAbilities"

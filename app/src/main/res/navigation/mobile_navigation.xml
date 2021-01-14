@@ -7,32 +7,44 @@
 
     <fragment
         android:id="@+id/nav_modulo"
-        android:name="com.example.dotipsandtricks.ui.module.ModuleFragment"
+        android:name="com.example.dotipsandtricks.ui.fragments.ModuleFragment"
         android:label="@string/menu_modulo"
         tools:layout="@layout/fragment_module" />
 
     <fragment
         android:id="@+id/nav_naves"
-        android:name="com.example.dotipsandtricks.ui.ship.ShipFragment"
+        android:name="com.example.dotipsandtricks.ui.fragments.ShipFragment"
         android:label="@string/menu_nave"
         tools:layout="@layout/fragment_ship" />
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.dotipsandtricks.ui.home.HomeFragment"
+        android:name="com.example.dotipsandtricks.ui.fragments.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_itens"
-        android:name="com.example.dotipsandtricks.ui.items.category.CategoryItemsFragment"
+        android:name="com.example.dotipsandtricks.ui.fragments.CategoryItemsFragment"
         android:label="@string/menu_itens"
         tools:layout="@layout/fragment_category_items" />
 
     <fragment
         android:id="@+id/nav_skilltree"
-        android:name="com.example.dotipsandtricks.ui.skilltree.CategoryPPsFragment"
+        android:name="com.example.dotipsandtricks.ui.fragments.SkillTreeFragment"
         android:label="@string/menu_skilltree"
-        tools:layout="@layout/fragment_category_pps" />
+        tools:layout="@layout/fragment_skill_tree" />
+
+    <fragment
+        android:id="@+id/nav_log_disk_cost_chart"
+        android:name="com.example.dotipsandtricks.ui.fragments.LogDiskCostChartFragment"
+        android:label="@string/menu_log_disk_cost_chart"
+        tools:layout="@layout/fragment_log_disk_cost_chart" />
+
+    <fragment
+        android:id="@+id/nav_tips"
+        android:name="com.example.dotipsandtricks.ui.fragments.TipsFragment"
+        android:label="@string/menu_tips"
+        tools:layout="@layout/fragment_tips" />
 
 </navigation>

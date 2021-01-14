@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     android:elevation="12dp"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.fragments.HomeFragment">
 
     <TextView
         android:id="@+id/txtTestando123"

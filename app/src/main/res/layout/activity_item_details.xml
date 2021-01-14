@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.items.ItemDetailsActivity">
+    tools:context=".ui.activities.item.ItemDetailsActivity">
 
 
     <ImageView
@@ -13,6 +13,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/label_item_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/label_txt"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/ivItemDT"
         app:layout_constraintStart_toEndOf="@+id/ivItemDT"
@@ -37,7 +38,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text="@string/label_txt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -87,6 +88,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="16dp"
+                        android:contentDescription="@string/label_item_image"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -109,7 +111,7 @@
                             android:id="@+id/tvMontagem"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Assembly"
+                            android:text="@string/lbl_assembly"
                             android:textSize="18sp" />
 
                     </LinearLayout>

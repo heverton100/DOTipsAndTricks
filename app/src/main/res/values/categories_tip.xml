@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories_tip">
+        <item>Select a Category</item>
+        <item>Upgrades</item>
+        <item>Ships</item>
+        <item>Damage</item>
+        <item>Formations</item>
+        <item>Galaxy Gates</item>
+        <item>SkyLab</item>
+        <item>PvP</item>
+    </string-array>
+</resources>

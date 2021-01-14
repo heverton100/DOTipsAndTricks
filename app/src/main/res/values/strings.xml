@@ -13,8 +13,9 @@
     <string name="menu_home">Home</string>
     <string name="menu_itens">Inventory</string>
     <string name="menu_skilltree">Skill Tree</string>
+    <string name="menu_log_disk_cost_chart">Log Disk - Cost Chart</string>
+    <string name="menu_tips">Tips</string>
     <string name="menu_logout">Logout</string>
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="menu_dano">Damage</string>
@@ -70,12 +71,23 @@
     <string name="lbl_reg_bt_reg">Register</string>
     <string name="lbl_reg_slfLogin">Swipe Right for Login</string>
 
-    <string name="cat_pp_st">Skill Tree</string>
-    <string name="cat_pp_cost">Cost Points Pilot</string>
     <string name="title_activity_ship2">Ship Activity</string>
     <string name="tab_text_1">Details</string>
     <string name="tab_text_2">Abilities</string>
     <string name="tab_text_3">Modules</string>
+
+    <string name="lbl_new_tip">New Tip</string>
+    <string name="lbl_my_tip">My Tips</string>
+    <string name="new_tip_content">Type your tip:</string>
+    <string name="btn_new_tip">Submit</string>
+    <string name="btn_upload_image">Select a image</string>
+
+
+    <string name="lbl_assembly">Assembly</string>
+
+    <string name="menu_hangar">Hangar</string>
+    <string name="menu_pilot_bio">Pilot Bio</string>
+
 
 
 </resources>

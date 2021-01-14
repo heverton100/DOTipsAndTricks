@@ -6,28 +6,49 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_ichome2"
+            android:icon="@drawable/ic_baseline_home_24"
             android:title="@string/menu_home" />
+
         <item
-            android:id="@+id/nav_naves"
-            android:icon="@drawable/ic_icnave2"
-            android:title="@string/menu_nave" />
-        <item
-            android:id="@+id/nav_modulo"
-            android:icon="@drawable/ic_icmodulo2"
-            android:title="@string/menu_modulo" />
-        <item
-            android:id="@+id/nav_itens"
-            android:icon="@drawable/ic_icitens"
-            android:title="@string/menu_itens" />
-        <item
-            android:id="@+id/nav_skilltree"
-            android:icon="@drawable/ic_baseline_account_tree_24"
-            android:title="@string/menu_skilltree" />
-        <item
-            android:id="@+id/nav_logout"
-            android:icon="@android:drawable/ic_lock_power_off"
-            android:title="@string/menu_logout" />
+            android:id="@+id/nav_tips"
+            android:icon="@drawable/ic_baseline_offline_bolt_24"
+            android:title="@string/menu_tips" />
 
     </group>
+
+    <item android:title="@string/menu_hangar">
+        <menu>
+            <item
+                android:id="@+id/nav_naves"
+                android:icon="@drawable/ic_ship0022"
+                android:title="@string/menu_nave" />
+            <item
+                android:id="@+id/nav_modulo"
+                android:icon="@drawable/ic_baseline_layers_24"
+                android:title="@string/menu_modulo" />
+            <item
+                android:id="@+id/nav_itens"
+                android:icon="@drawable/ic_baseline_view_list_24"
+                android:title="@string/menu_itens" />
+        </menu>
+    </item>
+
+    <item android:title="@string/menu_pilot_bio">
+        <menu>
+            <item
+                android:id="@+id/nav_skilltree"
+                android:icon="@drawable/ic_baseline_account_tree_24"
+                android:title="@string/menu_skilltree" />
+
+            <item
+                android:id="@+id/nav_log_disk_cost_chart"
+                android:icon="@drawable/ic_baseline_bar_chart_24"
+                android:title="@string/menu_log_disk_cost_chart" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_baseline_power_settings_new_24"
+        android:title="@string/menu_logout" />
 </menu>
