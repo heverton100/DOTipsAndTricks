@@ -37,8 +37,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final EditText usermail = findViewById(R.id.userEmail);
-        final EditText userpass = findViewById(R.id.userPass);
+        final EditText user_mail = findViewById(R.id.userEmail);
+        final EditText user_pass = findViewById(R.id.userPass);
         Button btnLogin = findViewById(R.id.btnLogin);
 
         mService = ApiUtils.getPostService();
@@ -46,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String email = usermail.getText().toString().trim();
-                final String pass = userpass.getText().toString().trim();
+                final String email = user_mail.getText().toString().trim();
+                final String pass = user_pass.getText().toString().trim();
                 if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass)) {
                     mService.login(email,pass).enqueue(new Callback<Users>() {
                         @Override
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(@NonNull Call<Users> call, @NonNull Throwable t) {
-                            Log.e("TESTTTTT", "Unable to submit post to API."+t);
+                            Log.e("LOG ERROR", "Unable to submit post to API."+t);
                         }
                     });
                 }

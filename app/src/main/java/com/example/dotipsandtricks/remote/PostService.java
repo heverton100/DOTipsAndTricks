@@ -5,6 +5,7 @@ import com.example.dotipsandtricks.model.Items;
 import com.example.dotipsandtricks.model.Modules;
 import com.example.dotipsandtricks.model.Assembly;
 import com.example.dotipsandtricks.model.ShipAbilities;
+import com.example.dotipsandtricks.model.ShipDesigns;
 import com.example.dotipsandtricks.model.Ships;
 import com.example.dotipsandtricks.model.PointsPilot;
 import com.example.dotipsandtricks.model.Skilllevels;
@@ -23,41 +24,41 @@ import retrofit2.http.Query;
 
 public interface PostService {
 
-    @GET("getNaves.php")
-    Call<List<Ships>> getNaves();
+    @GET("getShips.php")
+    Call<List<Ships>> getShips();
 
-    @GET("getModulos.php")
-    Call<List<Modules>> getModulos();
+    @GET("getModules.php")
+    Call<List<Modules>> getModules();
 
-    @GET("getNave.php")
-    Call<Ships> getNave(@Query("naveID") Integer naveID);
+    @GET("getShip.php")
+    Call<Ships> getShip(@Query("shipID") Integer shipID);
 
-    @GET("getNaveModulos.php")
-    Call<List<Modules>> getNaveModulos(@Query("naveID") Integer naveID);
+    @GET("getShipModules.php")
+    Call<List<Modules>> getShipModules(@Query("shipID") Integer shipID);
 
-    @GET("getModuloNaves.php")
-    Call<List<Ships>> getModuloNaves(@Query("moduloID") Integer moduloID);
+    @GET("getModuleShips.php")
+    Call<List<Ships>> getModuleShips(@Query("moduleID") Integer moduleID);
 
-    @GET("getModulos.php")
-    Call<List<Modules>> getModulosFiltro(@Query("filtro") String filtro);
+    @GET("getModules.php")
+    Call<List<Modules>> getModulesFilter(@Query("filter") String filter);
 
-    @GET("getCategorias.php")
-    Call<List<CategoryItem>> getCategorias();
+    @GET("getCategories.php")
+    Call<List<CategoryItem>> getCategories();
 
-    @GET("getItens.php")
-    Call<List<Items>> getItens(@Query("categoriaID") Integer categoriaID);
+    @GET("getItems.php")
+    Call<List<Items>> getItems(@Query("categoryID") Integer categoryID);
 
     @GET("getItem.php")
     Call<Items> getItem(@Query("itemID") Integer itemID);
 
-    @GET("getMontagem.php")
-    Call<List<Assembly>> getMontagem(@Query("itemID") Integer itemID);
+    @GET("getAssembly.php")
+    Call<List<Assembly>> getAssembly(@Query("itemID") Integer itemID);
 
     @GET("getPP.php")
     Call<List<PointsPilot>> getPP();
 
     @GET("getPP.php")
-    Call<List<PointsPilot>> getPPfiltro(@Query("filtro") String filtro);
+    Call<List<PointsPilot>> getPPfilter(@Query("filter") String filter);
 
     @GET("getSkilltree.php")
     Call<List<Skilltree>> getSkilltree();
@@ -66,7 +67,7 @@ public interface PostService {
     Call<List<Skilllevels>> getSkilllevels(@Query("skillID") Integer skillID);
 
     @GET("getSkilltree.php")
-    Call<List<Skilltree>> getSkilltreefiltro(@Query("filtro") String filtro);
+    Call<List<Skilltree>> getSkilltreefilter(@Query("filter") String filter);
 
     @POST("user/login.php")
     @FormUrlEncoded
@@ -85,7 +86,7 @@ public interface PostService {
                          @Field("pass") String userpass);
 
     @GET("getAbilities.php")
-    Call<List<ShipAbilities>> getAbilities(@Query("naveID") Integer naveID);
+    Call<List<ShipAbilities>> getAbilities(@Query("shipID") Integer shipID);
 
     @GET("tips/getTips.php")
     Call<List<Tips>> getTips(@Query("userlogged") Integer userlogged);
@@ -117,6 +118,9 @@ public interface PostService {
     Call<Tips> desLike(@Field("function") String function,
                        @Field("id_tip") Integer id_tip,
                        @Field("id_user") Integer id_user);
+
+    @GET("getShipDesigns.php")
+    Call<List<ShipDesigns>> getShipDesigns(@Query("shipID") Integer shipID);
 
 }
 

@@ -24,7 +24,7 @@ public class ShipAdapter extends RecyclerView.Adapter<ShipAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public TextView txtTitle,txtDescricaoNave;
+        public TextView txtTitle, txtDescNave;
         ItemClickListener itemClickListener;
         public ImageView imageViewNave;
 
@@ -32,7 +32,7 @@ public class ShipAdapter extends RecyclerView.Adapter<ShipAdapter.ViewHolder> {
             super(itemView);
             txtTitle = itemView.findViewById(R.id.tvNave);
             imageViewNave = itemView.findViewById(R.id.ivNave);
-            txtDescricaoNave = itemView.findViewById(R.id.tvDescricaoNave);
+            txtDescNave = itemView.findViewById(R.id.tvDescNave);
 
             itemView.setOnClickListener(this);
         }
@@ -70,18 +70,18 @@ public class ShipAdapter extends RecyclerView.Adapter<ShipAdapter.ViewHolder> {
 
         final Ships nave = mNaves.get(position);
         TextView textView = holder.txtTitle;
-        textView.setText(nave.getNome());
+        textView.setText(nave.getNameShip());
 
-        TextView txtDescNave = holder.txtDescricaoNave;
-        txtDescNave.setText(nave.getDescricao());
+        TextView txtDescNave = holder.txtDescNave;
+        txtDescNave.setText(nave.getDescriptionShip());
 
         ImageView iv = holder.imageViewNave;
-        Picasso.get().load(nave.getImageNave()).into(iv);
+        Picasso.get().load(nave.getImageShip()).into(iv);
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(int pos) {
-                openDetailActivity(nave.getIdNave().toString(),nave.getNome());
+                openDetailActivity(nave.getIdShip().toString(),nave.getNameShip());
             }
         });
     }
@@ -100,8 +100,8 @@ public class ShipAdapter extends RecyclerView.Adapter<ShipAdapter.ViewHolder> {
 
     public void openDetailActivity(String x,String y) {
         Intent i=new Intent(mContext, ShipActivity.class);
-        i.putExtra("IDNAVE", Integer.parseInt(x));
-        i.putExtra("SHIPNAME",y);
+        i.putExtra("ID_NAVE", Integer.parseInt(x));
+        i.putExtra("SHIP_NAME",y);
         mContext.startActivity(i);
     }
 

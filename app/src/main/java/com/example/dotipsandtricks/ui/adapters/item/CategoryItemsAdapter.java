@@ -18,7 +18,7 @@ import java.util.List;
 public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdapter.ViewHolder> {
 
     Context mContext;
-    private List<CategoryItem> mCategorias;
+    private List<CategoryItem> mCategories;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -27,7 +27,7 @@ public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdap
 
         public ViewHolder(View itemView) {
             super(itemView);
-            txtTitle = itemView.findViewById(R.id.txtCategoriaItens);
+            txtTitle = itemView.findViewById(R.id.txtCategoryItems);
             itemView.setOnClickListener(this);
         }
 
@@ -41,8 +41,8 @@ public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdap
         }
     }
 
-    public CategoryItemsAdapter(Context context, List<CategoryItem> categorias) {
-        mCategorias = categorias;
+    public CategoryItemsAdapter(Context context, List<CategoryItem> categories) {
+        mCategories = categories;
         mContext = context;
     }
 
@@ -61,32 +61,32 @@ public class CategoryItemsAdapter extends RecyclerView.Adapter<CategoryItemsAdap
     @Override
     public void onBindViewHolder(CategoryItemsAdapter.ViewHolder holder, int position) {
 
-        final CategoryItem categoria = mCategorias.get(position);
+        final CategoryItem category = mCategories.get(position);
         TextView textView = holder.txtTitle;
-        textView.setText(categoria.getDescricaoCategoria());
+        textView.setText(category.getDescriptionCategory());
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(int pos) {
-                openItensActivity(categoria.getIdCategoria().toString(),categoria.getDescricaoCategoria());
+                openItemsActivity(category.getIdCategory().toString(),category.getDescriptionCategory());
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mCategorias.size();
+        return mCategories.size();
     }
 
-    public void updateCategorias(List<CategoryItem> categorias) {
-        mCategorias = categorias;
+    public void updateCategories(List<CategoryItem> categories) {
+        mCategories = categories;
         notifyDataSetChanged();
     }
 
-    public void openItensActivity(String x,String y) {
+    public void openItemsActivity(String x, String y) {
         Intent i=new Intent(mContext, ItemsActivity.class);
-        i.putExtra("IDCATEGORIA", Integer.parseInt(x));
-        i.putExtra("NOMECATEGORIA", y);
+        i.putExtra("ID_CATEGORY", Integer.parseInt(x));
+        i.putExtra("NAME_CATEGORY", y);
         mContext.startActivity(i);
     }
 }

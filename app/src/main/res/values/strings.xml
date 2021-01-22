@@ -7,28 +7,25 @@
     <string name="nav_header_subtitle">Tips and Tricks</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Feedback</string>
-
     <string name="menu_modulo">Ship Upgrade Modules</string>
     <string name="menu_nave">Ships</string>
     <string name="menu_home">Home</string>
-    <string name="menu_itens">Inventory</string>
+    <string name="menu_items">Inventory</string>
     <string name="menu_skilltree">Skill Tree</string>
     <string name="menu_log_disk_cost_chart">Log Disk - Cost Chart</string>
     <string name="menu_tips">Tips</string>
     <string name="menu_logout">Logout</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string name="menu_dano">Damage</string>
+    <string name="menu_damage">Damage</string>
     <string name="menu_escudo">Shield</string>
     <string name="menu_hp">HP</string>
     <string name="menu_especial">Special</string>
-
     <string name="menu_skill_offensive">Offensive</string>
     <string name="menu_skill_defensive">Defensive</string>
     <string name="menu_skill_resource">Resource</string>
-
+    <string name="menu_hangar">Hangar</string>
+    <string name="menu_pilot_bio">Pilot Bio</string>
+    <string name="menu_all">All</string>
     <string name="label_txt">TextView</string>
-
     <string name="lbl_pp_column1">Pilot of Point (PP)</string>
     <string name="lbl_pp_column2">Quantity for each PP</string>
     <string name="lbl_pp_column3">Total Logfiles</string>
@@ -36,12 +33,10 @@
     <string name="lbl_pp_column5">Cost with Rebate</string>
     <string name="lbl_pp_column6">Cost with Premium</string>
     <string name="lbl_pp_column7">Cost with Premium e Rebate</string>
-
     <string name="label_item_image">Image Item</string>
     <string name="label_modulo_image">Image Module</string>
-    <string name="label_montagem_image">Image Item Assembly</string>
+    <string name="label_assembly_image">Image Item Assembly</string>
     <string name="label_nave_image">Image Ship</string>
-
     <string name="label_nave_details_hp">HP</string>
     <string name="label_nave_details_speed">Velocity</string>
     <string name="label_nave_details_cargo">Cargo</string>
@@ -52,42 +47,32 @@
     <string name="label_nave_details_extras">Extras</string>
     <string name="label_nave_details_modules">Modules</string>
     <string name="label_nave_details_av_modules">Available Modules</string>
-
     <string name="lbl_fp_email">Email</string>
     <string name="lbl_fp_pass">New Pass</string>
     <string name="lbl_fp_pass2">Confirm New Pass</string>
     <string name="lbl_fp_confirm">Confirm</string>
-
     <string name="lbl_login_email">Email</string>
     <string name="lbl_login_pass">Pass</string>
     <string name="lbl_login_btl">Login</string>
     <string name="lbl_login_slfReg">Swipe Left for Register</string>
     <string name="lbl_login_forPass">I forgot my pass</string>
-
     <string name="lbl_reg_name">Name</string>
     <string name="lbl_reg_pass">Pass</string>
     <string name="lbl_reg_email">Email</string>
     <string name="lbl_reg_confPass">Confirm Pass</string>
     <string name="lbl_reg_bt_reg">Register</string>
     <string name="lbl_reg_slfLogin">Swipe Right for Login</string>
-
     <string name="title_activity_ship2">Ship Activity</string>
-    <string name="tab_text_1">Details</string>
-    <string name="tab_text_2">Abilities</string>
-    <string name="tab_text_3">Modules</string>
-
+    <string name="lbl_assembly">Assembly</string>
     <string name="lbl_new_tip">New Tip</string>
     <string name="lbl_my_tip">My Tips</string>
     <string name="new_tip_content">Type your tip:</string>
     <string name="btn_new_tip">Submit</string>
     <string name="btn_upload_image">Select a image</string>
+    <string name="tab_text_1">Details</string>
+    <string name="tab_text_2">Abilities</string>
+    <string name="tab_text_3">Modules</string>
+    <string name="tab_text_4">Designs</string>
 
-
-    <string name="lbl_assembly">Assembly</string>
-
-    <string name="menu_hangar">Hangar</string>
-    <string name="menu_pilot_bio">Pilot Bio</string>
-
-
-
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

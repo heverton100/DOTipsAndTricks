@@ -36,7 +36,7 @@
         android:layout_gravity="bottom|end">
 
         <LinearLayout
-            android:id="@+id/llfab3"
+            android:id="@+id/llFab3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="bottom|end"
@@ -70,7 +70,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llfab2"
+            android:id="@+id/llFab2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="bottom|end"
@@ -104,7 +104,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/llfab1"
+            android:id="@+id/llFab1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="bottom|end"

@@ -191,7 +191,7 @@ public class MyTipsAdapter extends RecyclerView.Adapter<MyTipsAdapter.ViewHolder
 
             @Override
             public void onFailure(@NonNull Call<Tips> call, @NonNull Throwable t) {
-                Log.e("TESTTTTT", "Unable to submit post to API." + t.getMessage());
+                Log.e("LOG ERROR", "Unable to submit post to API." + t.getMessage());
             }
         });
     }
@@ -211,13 +211,13 @@ public class MyTipsAdapter extends RecyclerView.Adapter<MyTipsAdapter.ViewHolder
                     updateMyTips(response.body());
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Tips>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in Call REST");
             }
         });
     }

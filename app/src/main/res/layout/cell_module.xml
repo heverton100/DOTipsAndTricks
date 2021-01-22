@@ -58,13 +58,13 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tvTipo"
+                    android:id="@+id/tvType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/label_txt" />
 
                 <TextView
-                    android:id="@+id/tvDescricaoModulo"
+                    android:id="@+id/tvDescModulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/label_txt" />

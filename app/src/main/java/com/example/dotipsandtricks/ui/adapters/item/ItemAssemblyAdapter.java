@@ -44,13 +44,13 @@ public class ItemAssemblyAdapter extends ArrayAdapter<Assembly> {
 
         Assembly m = getItem(position);
 
-        TextView qtdade = convertView.findViewById(R.id.txtQtdadeMontagem);
-        qtdade.setText(m.getQuantidade().toString());
+        TextView quantity = convertView.findViewById(R.id.txtQuantityAssembly);
+        quantity.setText(m.getQuantity().toString());
 
-        TextView nomeItem = convertView.findViewById(R.id.txtItemMontagem);
-        nomeItem.setText(m.getNomeItem());
+        TextView nomeItem = convertView.findViewById(R.id.txtItemAssembly);
+        nomeItem.setText(m.getNameItem());
 
-        ImageView iv = convertView.findViewById(R.id.ivItemMontagem);
+        ImageView iv = convertView.findViewById(R.id.ivItemAssembly);
         Picasso.get().load(m.getUrlImageItem()).into(iv);
 
         return convertView;

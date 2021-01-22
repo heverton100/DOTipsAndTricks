@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.example.dotipsandtricks.R;
 import com.example.dotipsandtricks.ui.fragments.shiptabbed.ShipAbilitiesFragment;
+import com.example.dotipsandtricks.ui.fragments.shiptabbed.ShipDesignsFragment;
 import com.example.dotipsandtricks.ui.fragments.shiptabbed.ShipDetailsFragment;
 import com.example.dotipsandtricks.ui.fragments.shiptabbed.ShipModulesFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -23,10 +24,10 @@ import java.util.List;
 
 public class ShipActivity extends AppCompatActivity {
 
-    private List<Fragment> fragments;
     ShipDetailsFragment fragment1;
     ShipAbilitiesFragment fragment2;
     ShipModulesFragment fragment3;
+    ShipDesignsFragment fragment4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,29 +37,22 @@ public class ShipActivity extends AppCompatActivity {
         fragment1 = new ShipDetailsFragment();
         fragment2 = new ShipAbilitiesFragment();
         fragment3 = new ShipModulesFragment();
+        fragment4 = new ShipDesignsFragment();
 
-        fragments = new ArrayList<>();
+        List<Fragment> fragments = new ArrayList<>();
         fragments.add(fragment1);
         fragments.add(fragment2);
         fragments.add(fragment3);
+        fragments.add(fragment4);
 
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(),fragments);
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager(), fragments);
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
-/*        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
         Intent i=this.getIntent();
-        String title = i.getStringExtra("SHIPNAME");
+        String title = i.getStringExtra("SHIP_NAME");
 
         TextView textView = findViewById(R.id.title);
         textView.setText(title);
@@ -67,12 +61,8 @@ public class ShipActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case android.R.id.home:
-
-                onBackPressed();
-
-                break;
+        if (id == android.R.id.home) {
+            onBackPressed();
         }
         return true;
     }

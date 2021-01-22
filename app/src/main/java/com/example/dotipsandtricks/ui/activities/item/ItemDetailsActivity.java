@@ -55,15 +55,15 @@ public class ItemDetailsActivity extends AppCompatActivity {
         itemDescTxt = findViewById(R.id.tvItemDescDT);
         itemIv = findViewById(R.id.ivItemDT);
 
-        arrowBtnMont = findViewById(R.id.arrowBtnMontagem);
-        expandableViewMont = findViewById(R.id.expandableViewMontagem);
-        cardViewMont = findViewById(R.id.cardViewMontagem);
-        listViewMont = findViewById(R.id.listMontagem);
+        arrowBtnMont = findViewById(R.id.arrowBtnAssembly);
+        expandableViewMont = findViewById(R.id.expandableViewAssembly);
+        cardViewMont = findViewById(R.id.cardViewAssembly);
+        listViewMont = findViewById(R.id.listAssembly);
 
         mService = ApiUtils.getPostService();
 
         Intent i=this.getIntent();
-        final Integer title = i.getIntExtra("IDITEM",0);
+        final Integer title = i.getIntExtra("ID_ITEM",0);
 
         Call<Items> call = mService.getItem(title);
 
@@ -72,23 +72,23 @@ public class ItemDetailsActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<Items> call, @NonNull Response<Items> response) {
 
                 if(response.isSuccessful()) {
-                    titleTxt.setText(response.body().getNomeItem());
-                    itemDescTxt.setText(response.body().getDescricaoItem());
+                    titleTxt.setText(response.body().getNameItem());
+                    itemDescTxt.setText(response.body().getDescriptionItem());
 
                     Picasso.get().load(response.body().getUrlImageItem()).into(itemIv);
 
-                    if(response.body().getExisteMontagem().trim().equals("S")){
+                    if(response.body().getExistsAssembly().trim().equals("S")){
                         cardViewMont.setVisibility(View.VISIBLE);
                     }
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<Items> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST"+t);
+                Log.d("MainActivity", "Error in call REST"+t);
             }
         });
 
@@ -101,7 +101,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
                     expandableViewMont.setVisibility(View.VISIBLE);
                     arrowBtnMont.setBackgroundResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
 
-                    retornaMontagem(title);
+                    returnAssembly(title);
                 } else {
                     TransitionManager.beginDelayedTransition(cardViewMont, new AutoTransition());
                     expandableViewMont.setVisibility(View.GONE);
@@ -114,19 +114,15 @@ public class ItemDetailsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case android.R.id.home:
-
-                onBackPressed();
-
-                break;
+        if (id == android.R.id.home) {
+            onBackPressed();
         }
         return true;
     }
 
-    private void retornaMontagem(Integer itemId) {
+    private void returnAssembly(Integer itemId) {
 
-        Call<List<Assembly>> call = mService.getMontagem(itemId);
+        Call<List<Assembly>> call = mService.getAssembly(itemId);
 
         call.enqueue(new Callback<List<Assembly>>() {
             @Override
@@ -141,19 +137,19 @@ public class ItemDetailsActivity extends AppCompatActivity {
                     listViewMont.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                         @Override
                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                            Toast.makeText(ItemDetailsActivity.this, assemblies.get(i).getDescricaoItem(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(ItemDetailsActivity.this, assemblies.get(i).getDescriptionItem(),Toast.LENGTH_LONG).show();
                         }
                     });
 
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Assembly>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in call REST");
             }
         });
     }

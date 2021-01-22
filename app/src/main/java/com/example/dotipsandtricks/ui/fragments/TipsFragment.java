@@ -36,7 +36,6 @@ import retrofit2.Response;
 
 public class TipsFragment extends Fragment {
 
-    private RecyclerView mRecyclerView;
     private PostService mService;
     private TipsAdapter mAdapter;
 
@@ -53,7 +52,7 @@ public class TipsFragment extends Fragment {
 
         final View root = inflater.inflate(R.layout.fragment_tips, container, false);
 
-        mRecyclerView = root.findViewById(R.id.rvTips);
+        RecyclerView mRecyclerView = root.findViewById(R.id.rvTips);
         mAdapter = new TipsAdapter(this.getContext(), new ArrayList<Tips>(0));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
@@ -67,8 +66,8 @@ public class TipsFragment extends Fragment {
         returnTips();
 
         ll1 = root.findViewById(R.id.clFabMenu);
-        ll2 = root.findViewById(R.id.llfab2);
-        ll3 = root.findViewById(R.id.llfab3);
+        ll2 = root.findViewById(R.id.llFab2);
+        ll3 = root.findViewById(R.id.llFab3);
 
         lbl1 = root.findViewById(R.id.lblFab1);
         lbl2 = root.findViewById(R.id.lblFab2);
@@ -100,7 +99,7 @@ public class TipsFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(root.getContext(), MyTipsActivity.class);
-                i.putExtra("IDUSER", retornaIDuser());
+                i.putExtra("ID_USER", returnIDuser());
                 root.getContext().startActivity(i);
             }
         });
@@ -131,7 +130,7 @@ public class TipsFragment extends Fragment {
         super.onResume();
     }
 
-    public Integer retornaIDuser(){
+    public Integer returnIDuser(){
         int id;
         SharedPreferences prefs = this.getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
         id = prefs.getInt("userid",0);
@@ -140,7 +139,7 @@ public class TipsFragment extends Fragment {
 
     public void returnTips(){
 
-        Call<List<Tips>> call = mService.getTips(retornaIDuser());
+        Call<List<Tips>> call = mService.getTips(returnIDuser());
 
         call.enqueue(new Callback<List<Tips>>() {
             @Override
@@ -150,13 +149,13 @@ public class TipsFragment extends Fragment {
                     mAdapter.updateTips(response.body());
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Tips>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in REST");
             }
         });
 

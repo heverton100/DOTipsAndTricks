@@ -8,27 +8,27 @@ public class Items {
     @SerializedName("id_item")
     @Expose
     private Integer idItem;
-    @SerializedName("id_categoria")
+    @SerializedName("id_category")
     @Expose
-    private Integer idCategoria;
-    @SerializedName("descricao_item")
+    private Integer idCategory;
+    @SerializedName("description_item")
     @Expose
-    private String descricaoItem;
+    private String descriptionItem;
     @SerializedName("url_image_item")
     @Expose
     private String urlImageItem;
-    @SerializedName("nome_item")
+    @SerializedName("name_item")
     @Expose
-    private String nomeItem;
-    @SerializedName("dano_base_lasers")
+    private String nameItem;
+    @SerializedName("damage_base_lasers")
     @Expose
-    private String danoBaseLasers;
+    private String damageBaseLasers;
     @SerializedName("sigla_hardware")
     @Expose
     private String siglaHardware;
-    @SerializedName("existe_montagem")
+    @SerializedName("exists_assembly")
     @Expose
-    private String existeMontagem;
+    private String existsAssembly;
 
     public Integer getIdItem() {
         return idItem;
@@ -38,20 +38,20 @@ public class Items {
         this.idItem = idItem;
     }
 
-    public Integer getIdCategoria() {
-        return idCategoria;
+    public Integer getIdCategory() {
+        return idCategory;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setIdCategory(Integer idCategory) {
+        this.idCategory = idCategory;
     }
 
-    public String getDescricaoItem() {
-        return descricaoItem;
+    public String getDescriptionItem() {
+        return descriptionItem;
     }
 
-    public void setDescricaoItem(String descricaoItem) {
-        this.descricaoItem = descricaoItem;
+    public void setDescriptionItem(String descriptionItem) {
+        this.descriptionItem = descriptionItem;
     }
 
     public String getUrlImageItem() {
@@ -62,20 +62,20 @@ public class Items {
         this.urlImageItem = urlImageItem;
     }
 
-    public String getNomeItem() {
-        return nomeItem;
+    public String getNameItem() {
+        return nameItem;
     }
 
-    public void setNomeItem(String nomeItem) {
-        this.nomeItem = nomeItem;
+    public void setNameItem(String nameItem) {
+        this.nameItem = nameItem;
     }
 
-    public String getDanoBaseLasers() {
-        return danoBaseLasers;
+    public String getDamageBaseLasers() {
+        return damageBaseLasers;
     }
 
-    public void setDanoBaseLasers(String danoBaseLasers) {
-        this.danoBaseLasers = danoBaseLasers;
+    public void setDamageBaseLasers(String damageBaseLasers) {
+        this.damageBaseLasers = damageBaseLasers;
     }
 
     public String getSiglaHardware() {
@@ -86,12 +86,12 @@ public class Items {
         this.siglaHardware = siglaHardware;
     }
 
-    public String getExisteMontagem() {
-        return existeMontagem;
+    public String getExistsAssembly() {
+        return existsAssembly;
     }
 
-    public void setExisteMontagem(String existeMontagem) {
-        this.existeMontagem = existeMontagem;
+    public void setExistsAssembly(String existsAssembly) {
+        this.existsAssembly = existsAssembly;
     }
 
 }

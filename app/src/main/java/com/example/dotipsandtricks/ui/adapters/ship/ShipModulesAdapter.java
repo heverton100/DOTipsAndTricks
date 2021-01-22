@@ -63,7 +63,7 @@ public class ShipModulesAdapter extends RecyclerView.Adapter<ShipModulesAdapter.
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        View moduloView = inflater.inflate(R.layout.cell_modules_ship, parent, false);
+        View moduloView = inflater.inflate(R.layout.cell_ship_modules, parent, false);
 
         return new ShipModulesAdapter.ViewHolder(moduloView);
     }
@@ -74,15 +74,15 @@ public class ShipModulesAdapter extends RecyclerView.Adapter<ShipModulesAdapter.
 
         final Modules module = mModules.get(position);
         TextView textView = holder.txtTitle;
-        textView.setText(module.getNomeModulo());
+        textView.setText(module.getNameModule());
 
         ImageView iv = holder.imageViewItem;
-        Picasso.get().load(module.getImageModulo()).into(iv);
+        Picasso.get().load(module.getImageModule()).into(iv);
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(int pos) {
-                Toast.makeText(mContext,"Effect: "+module.getDescricaoModulo(),Toast.LENGTH_LONG).show();
+                Toast.makeText(mContext,"Effect: "+module.getDescriptionModule(),Toast.LENGTH_LONG).show();
             }
         });
 

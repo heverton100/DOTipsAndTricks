@@ -7,7 +7,7 @@
     tools:context=".ui.activities.item.ItemsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvItens"
+        android:id="@+id/rvItems"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

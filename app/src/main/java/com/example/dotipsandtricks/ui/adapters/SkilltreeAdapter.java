@@ -54,8 +54,8 @@ public class SkilltreeAdapter extends RecyclerView.Adapter<SkilltreeAdapter.View
 
         public ViewHolder(View itemView) {
             super(itemView);
-            txtSkName = itemView.findViewById(R.id.tvSkillname);
-            txtSkType = itemView.findViewById(R.id.tvSkilltype);
+            txtSkName = itemView.findViewById(R.id.tvSkillName);
+            txtSkType = itemView.findViewById(R.id.tvSkillType);
             iv = itemView.findViewById(R.id.ivSkill);
             txtSkDesc = itemView.findViewById(R.id.tvSkillDesc);
             txtSkEf = itemView.findViewById(R.id.tvSkillEffect);
@@ -99,7 +99,7 @@ public class SkilltreeAdapter extends RecyclerView.Adapter<SkilltreeAdapter.View
         txsktype.setText(skilltree.getTypeSkill());
 
         TextView txSkDesc = holder.txtSkDesc;
-        txSkDesc.setText(skilltree.getDescricaoSkill());
+        txSkDesc.setText(skilltree.getDescriptionSkill());
 
         TextView txSkEf = holder.txtSkEf;
         txSkEf.setText(skilltree.getVisualEffect());
@@ -143,16 +143,15 @@ public class SkilltreeAdapter extends RecyclerView.Adapter<SkilltreeAdapter.View
 
                             if(response.isSuccessful()) {
                                 skilllevelAdapter.updateSkilllevel(response.body());
-                                Log.d("TESTTEEEE", "Chamada REST retornou: "+mskills.size());
                             }else {
                                 int statusCode = response.code();
-                                Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                                Log.d("MainActivity", "Call REST return: "+statusCode);
                             }
                         }
 
                         @Override
                         public void onFailure(@NonNull Call<List<Skilllevels>> call, @NonNull Throwable t) {
-                            Log.d("MainActivity", "Erro na chamada REST");
+                            Log.d("MainActivity", "Error in Call REST");
                         }
                     });
 

@@ -4,12 +4,12 @@
 
     <group android:checkableBehavior="none">
         <item
-            android:id="@+id/menuTodosModulos"
-            android:title="All"
+            android:id="@+id/menuAllModules"
+            android:title="@string/menu_all"
             app:showAsAction="never" />
         <item
-            android:id="@+id/menuDano"
-            android:title="@string/menu_dano"
+            android:id="@+id/menuDamage"
+            android:title="@string/menu_damage"
             app:showAsAction="never" />
         <item
             android:id="@+id/menuEscudo"

@@ -29,7 +29,6 @@ import retrofit2.Response;
 
 public class SkillTreeFragment extends Fragment {
 
-    private RecyclerView mRecyclerView;
     private PostService mService;
     private SkilltreeAdapter mAdapter;
 
@@ -38,7 +37,7 @@ public class SkillTreeFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_skill_tree, container, false);
 
-        mRecyclerView = root.findViewById(R.id.rvSkilltree);
+        RecyclerView mRecyclerView = root.findViewById(R.id.rvSkilltree);
         mAdapter = new SkilltreeAdapter(this.getContext(), new ArrayList<Skilltree>(0));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
@@ -69,13 +68,13 @@ public class SkillTreeFragment extends Fragment {
                     mAdapter.updateSkilltree(response.body());
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Skilltree>> call,@NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in Call REST");
             }
         });
 
@@ -88,20 +87,20 @@ public class SkillTreeFragment extends Fragment {
         switch (id) {
             case R.id.menuSkillDefensive:
 
-                loadSkillsfiltro("Defensive");
+                loadSkillsFilter("Defensive");
 
                 break;
             case R.id.menuSkillOffensive:
 
-                loadSkillsfiltro("Offensive");
+                loadSkillsFilter("Offensive");
 
                 break;
             case R.id.menuSkillResource:
 
-                loadSkillsfiltro("Resource");
+                loadSkillsFilter("Resource");
 
                 break;
-            case R.id.menuTodosSkill:
+            case R.id.menuAllSkill:
 
                 loadSkills();
 
@@ -116,9 +115,9 @@ public class SkillTreeFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    private void loadSkillsfiltro(String s) {
+    private void loadSkillsFilter(String s) {
 
-        Call<List<Skilltree>> call = mService.getSkilltreefiltro(s);
+        Call<List<Skilltree>> call = mService.getSkilltreefilter(s);
 
         call.enqueue(new Callback<List<Skilltree>>() {
             @Override
@@ -128,13 +127,13 @@ public class SkillTreeFragment extends Fragment {
                     mAdapter.updateSkilltree(response.body());
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Skilltree>> call,@NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in Call REST");
             }
         });
 

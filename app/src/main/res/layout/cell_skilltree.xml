@@ -52,14 +52,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/tvSkillname"
+                    android:id="@+id/tvSkillName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/label_txt"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tvSkilltype"
+                    android:id="@+id/tvSkillType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/label_txt" />

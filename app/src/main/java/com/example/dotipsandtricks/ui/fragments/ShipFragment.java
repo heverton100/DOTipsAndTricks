@@ -23,7 +23,6 @@ import retrofit2.Response;
 
 public class ShipFragment extends Fragment{
 
-    private RecyclerView mRecyclerView;
     private ShipAdapter mAdapter;
     private PostService mService;
 
@@ -31,7 +30,7 @@ public class ShipFragment extends Fragment{
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_ship, container, false);
 
-        mRecyclerView = root.findViewById(R.id.rvNaves);
+        RecyclerView mRecyclerView = root.findViewById(R.id.rvNaves);
         mAdapter = new ShipAdapter(this.getContext(), new ArrayList<Ships>(0));
 
 
@@ -49,7 +48,7 @@ public class ShipFragment extends Fragment{
 
     private void loadNaves() {
 
-        Call<List<Ships>> call = mService.getNaves();
+        Call<List<Ships>> call = mService.getShips();
 
         call.enqueue(new Callback<List<Ships>>() {
             @Override
@@ -59,13 +58,13 @@ public class ShipFragment extends Fragment{
                     mAdapter.updateNaves(response.body());
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Ships>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in Call REST");
             }
         });
     }

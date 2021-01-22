@@ -12,5 +12,5 @@ public interface ImageService {
 
     @Multipart
     @POST("/1/upload")
-    Call<ResponseMy> postImage(@Part("image\"; filename=\"myfile.jpg\" ") RequestBody file, @Part("key") RequestBody key);
+    Call<ResponseMy> postImage(@Part("image\"; filename=\"my_file.jpg\" ") RequestBody file, @Part("key") RequestBody key);
 }

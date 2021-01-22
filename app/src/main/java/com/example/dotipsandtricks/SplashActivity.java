@@ -35,12 +35,12 @@ public class SplashActivity extends AppCompatActivity {
         handle.postDelayed(new Runnable() {
             @Override
             public void run() {
-                mostrarLogin();
+                showLogin();
             }
         }, 2000);
     }
 
-    private void mostrarLogin() {
+    private void showLogin() {
         Intent intent = new Intent(SplashActivity.this,
                 //MainActivity.class);
                 LoginActivity.class);
@@ -50,7 +50,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private void loadAPI() {
 
-        Call<List<Ships>> call = mService.getNaves();
+        Call<List<Ships>> call = mService.getShips();
 
         call.enqueue(new Callback<List<Ships>>() {
             @Override
@@ -60,13 +60,13 @@ public class SplashActivity extends AppCompatActivity {
                     Log.d("MainActivity", "SUCCESS");
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Ships>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in Call REST");
             }
         });
     }

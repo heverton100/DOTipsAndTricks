@@ -5,61 +5,61 @@ import com.google.gson.annotations.SerializedName;
 
 public class Modules {
 
-    @SerializedName("id_modulo")
+    @SerializedName("id_module")
     @Expose
-    private Integer idModulo;
-    @SerializedName("nome_modulo")
+    private Integer idModule;
+    @SerializedName("name_module")
     @Expose
-    private String nomeModulo;
-    @SerializedName("descricao_modulo")
+    private String nameModule;
+    @SerializedName("description_module")
     @Expose
-    private String descricaoModulo;
-    @SerializedName("tipo_modulo")
+    private String descriptionModule;
+    @SerializedName("type_module")
     @Expose
-    private String tipoModulo;
-    @SerializedName("image_modulo")
+    private String typeModule;
+    @SerializedName("image_module")
     @Expose
-    private String imageModulo;
+    private String imageModule;
 
 
-    public Integer getIdModulo() {
-        return idModulo;
+    public Integer getIdModule() {
+        return idModule;
     }
 
-    public void setIdModulo(Integer idModulo) {
-        this.idModulo = idModulo;
+    public void setIdModule(Integer idModule) {
+        this.idModule = idModule;
     }
 
-    public String getNomeModulo() {
-        return nomeModulo;
+    public String getNameModule() {
+        return nameModule;
     }
 
-    public void setNomeModulo(String nomeModulo) {
-        this.nomeModulo = nomeModulo;
+    public void setNameModule(String nameModule) {
+        this.nameModule = nameModule;
     }
 
-    public String getDescricaoModulo() {
-        return descricaoModulo;
+    public String getDescriptionModule() {
+        return descriptionModule;
     }
 
-    public void setDescricaoModulo(String descricaoModulo) {
-        this.descricaoModulo = descricaoModulo;
+    public void setDescriptionModule(String descriptionModule) {
+        this.descriptionModule = descriptionModule;
     }
 
-    public String getTipoModulo() {
-        return tipoModulo;
+    public String getTypeModule() {
+        return typeModule;
     }
 
-    public void setTipoModulo(String tipoModulo) {
-        this.tipoModulo = tipoModulo;
+    public void setTypeModule(String typeModule) {
+        this.typeModule = typeModule;
     }
 
-    public String getImageModulo() {
-        return imageModulo;
+    public String getImageModule() {
+        return imageModule;
     }
 
-    public void setImageModulo(String imageModulo) {
-        this.imageModulo = imageModulo;
+    public void setImageModule(String imageModule) {
+        this.imageModule = imageModule;
     }
 
 }

@@ -124,7 +124,7 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
             public void onClick(View view) {
 
                 if(tip.getLiked() == 0){
-                    newLike(tip.getIdTip(),retornaIDuser());
+                    newLike(tip.getIdTip(), returnIDuser());
                     tip.setLiked(1);
                     tip.setLikes(tip.getLikes()+1);
                     notifyItemChanged(position);
@@ -139,7 +139,7 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
             public boolean onLongClick(View view) {
 
                 if(tip.getLiked() == 1){
-                    desLike(tip.getIdTip(),retornaIDuser());
+                    desLike(tip.getIdTip(), returnIDuser());
                     tip.setLiked(0);
                     tip.setLikes(tip.getLikes()-1);
                     notifyItemChanged(position);
@@ -161,8 +161,8 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
-    public void newLike(Integer idtip,Integer iduser) {
-        mService.newLike("newlike",idtip,iduser).enqueue(new Callback<Tips>() {
+    public void newLike(Integer id_tip,Integer id_user) {
+        mService.newLike("newlike",id_tip,id_user).enqueue(new Callback<Tips>() {
             @Override
             public void onResponse(@NonNull Call<Tips> call, @NonNull Response<Tips> response) {
                 if (response.isSuccessful()) {
@@ -176,13 +176,13 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
 
             @Override
             public void onFailure(@NonNull Call<Tips> call, @NonNull Throwable t) {
-                Log.e("TESTTTTT", "Unable to submit post to API." + t.getMessage());
+                Log.e("LOG ERROR", "Unable to submit post to API." + t.getMessage());
             }
         });
     }
 
-    public void desLike(Integer idtip,Integer iduser) {
-        mService.desLike("deslike",idtip,iduser).enqueue(new Callback<Tips>() {
+    public void desLike(Integer id_tip,Integer id_user) {
+        mService.desLike("deslike",id_tip,id_user).enqueue(new Callback<Tips>() {
             @Override
             public void onResponse(@NonNull Call<Tips> call, @NonNull Response<Tips> response) {
                 if (response.isSuccessful()) {
@@ -196,12 +196,12 @@ public class TipsAdapter extends RecyclerView.Adapter<TipsAdapter.ViewHolder> {
 
             @Override
             public void onFailure(@NonNull Call<Tips> call, @NonNull Throwable t) {
-                Log.e("TESTTTTT", "Unable to submit post to API." + t.getMessage());
+                Log.e("LOG ERROR", "Unable to submit post to API." + t.getMessage());
             }
         });
     }
 
-    public Integer retornaIDuser(){
+    public Integer returnIDuser(){
         int id;
         SharedPreferences prefs = mContext.getSharedPreferences("user", Context.MODE_PRIVATE);
         id = prefs.getInt("userid",0);

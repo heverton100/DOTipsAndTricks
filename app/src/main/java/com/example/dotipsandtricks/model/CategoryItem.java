@@ -5,27 +5,27 @@ import com.google.gson.annotations.SerializedName;
 
 public class CategoryItem {
 
-    @SerializedName("id_categoria")
+    @SerializedName("id_category")
     @Expose
-    private Integer idCategoria;
-    @SerializedName("descricao_categoria")
+    private Integer idCategory;
+    @SerializedName("description_category")
     @Expose
-    private String descricaoCategoria;
+    private String descriptionCategory;
 
-    public Integer getIdCategoria() {
-        return idCategoria;
+    public Integer getIdCategory() {
+        return idCategory;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setIdCategory(Integer idCategory) {
+        this.idCategory = idCategory;
     }
 
-    public String getDescricaoCategoria() {
-        return descricaoCategoria;
+    public String getDescriptionCategory() {
+        return descriptionCategory;
     }
 
-    public void setDescricaoCategoria(String descricaoCategoria) {
-        this.descricaoCategoria = descricaoCategoria;
+    public void setDescriptionCategory(String descriptionCategory) {
+        this.descriptionCategory = descriptionCategory;
 
     }
 }

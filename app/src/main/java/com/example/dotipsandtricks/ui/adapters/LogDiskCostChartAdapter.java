@@ -19,17 +19,17 @@ public class LogDiskCostChartAdapter extends RecyclerView.Adapter<LogDiskCostCha
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView txtPP,txtQtd,txtTotalPP,txtCustoT,txtCustoDesc,txtCustoPrem,txtCustoDescPrem;
+        public TextView txtPP,txtQtd,txtTotalPP, txtCostT, txtCostDesc, txtCostPrem, txtCostDescPrem;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            txtPP = itemView.findViewById(R.id.pontop);
-            txtQtd = itemView.findViewById(R.id.qtdadePP);
+            txtPP = itemView.findViewById(R.id.pointP);
+            txtQtd = itemView.findViewById(R.id.quantityPP);
             txtTotalPP = itemView.findViewById(R.id.totalPP);
-            txtCustoT = itemView.findViewById(R.id.custoTotal);
-            txtCustoDesc = itemView.findViewById(R.id.custoDesconto);
-            txtCustoPrem = itemView.findViewById(R.id.custoPremium);
-            txtCustoDescPrem = itemView.findViewById(R.id.custoDescPrem);
+            txtCostT = itemView.findViewById(R.id.costTotal);
+            txtCostDesc = itemView.findViewById(R.id.costDiscount);
+            txtCostPrem = itemView.findViewById(R.id.costPremium);
+            txtCostDescPrem = itemView.findViewById(R.id.costDescPrem);
         }
 
     }
@@ -57,25 +57,25 @@ public class LogDiskCostChartAdapter extends RecyclerView.Adapter<LogDiskCostCha
         final PointsPilot pp = mPps.get(position);
 
         TextView textView = holder.txtPP;
-        textView.setText(pp.getPontoPesquisa());
+        textView.setText(pp.getResearchPoint());
 
         TextView textView1 = holder.txtQtd;
-        textView1.setText(pp.getQtdadeLogs().toString());
+        textView1.setText(pp.getQuantityLogs().toString());
 
         TextView textView2 = holder.txtTotalPP;
         textView2.setText(pp.getTotalLogs().toString());
 
-        TextView textView3 = holder.txtCustoT;
-        textView3.setText(pp.getCustoTotal());
+        TextView textView3 = holder.txtCostT;
+        textView3.setText(pp.getCostTotal());
 
-        TextView textView4 = holder.txtCustoDesc;
-        textView4.setText(pp.getCustoComDesconto());
+        TextView textView4 = holder.txtCostDesc;
+        textView4.setText(pp.getCostWithDiscount());
 
-        TextView textView5 = holder.txtCustoPrem;
-        textView5.setText(pp.getCustoComPremium());
+        TextView textView5 = holder.txtCostPrem;
+        textView5.setText(pp.getCostWithPremium());
 
-        TextView textView6 = holder.txtCustoDescPrem;
-        textView6.setText(pp.getCustoDescontoPremium());
+        TextView textView6 = holder.txtCostDescPrem;
+        textView6.setText(pp.getCostDiscountPremium());
 
     }
 
@@ -88,11 +88,5 @@ public class LogDiskCostChartAdapter extends RecyclerView.Adapter<LogDiskCostCha
         mPps = pps;
         notifyDataSetChanged();
     }
-
-    //public void openDetailActivity(String x) {
-    //    Intent i=new Intent(mContext, ShipActivity.class);
-    //    i.putExtra("IDNAVE", Integer.parseInt(x));
-    //    mContext.startActivity(i);
-    //}
 
 }

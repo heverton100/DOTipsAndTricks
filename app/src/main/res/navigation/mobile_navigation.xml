@@ -24,9 +24,9 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_itens"
+        android:id="@+id/nav_items"
         android:name="com.example.dotipsandtricks.ui.fragments.CategoryItemsFragment"
-        android:label="@string/menu_itens"
+        android:label="@string/menu_items"
         tools:layout="@layout/fragment_category_items" />
 
     <fragment

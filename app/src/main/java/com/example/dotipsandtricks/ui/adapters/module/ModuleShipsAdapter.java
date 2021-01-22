@@ -37,7 +37,7 @@ public class ModuleShipsAdapter extends ArrayAdapter<Ships> {
         Ships ships = getItem(position);
         TextView textView = convertView.findViewById(R.id.txtNaveListM);
 
-        textView.setText(ships.getNome());
+        textView.setText(ships.getNameShip());
 
         return convertView;
     }

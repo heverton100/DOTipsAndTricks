@@ -24,9 +24,8 @@ import retrofit2.Response;
 
 public class ShipDetailsFragment extends Fragment {
 
-    TextView hpTxt,velocTxt,cargaTxt,habTxt,bonusTxt,lasersTxt,geradoresTxt,extrasTxt,modulosTxt;
+    TextView hpTxt, velocityTxt, cargoTxt,habTxt,bonusTxt,lasersTxt, generatorsTxt,extrasTxt, modulesTxt;
     ImageView naveIv;
-    private PostService mService;
 
 
     @Override
@@ -35,26 +34,23 @@ public class ShipDetailsFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_ship_details, container, false);
 
-        mService = ApiUtils.getPostService();
+        PostService mService = ApiUtils.getPostService();
 
         hpTxt = root.findViewById(R.id.txtHpDT);
-        velocTxt = root.findViewById(R.id.txtVelocDT);
-        cargaTxt = root.findViewById(R.id.txtCargaDT);
+        velocityTxt = root.findViewById(R.id.txtVelocDT);
+        cargoTxt = root.findViewById(R.id.txtCargoDT);
         habTxt = root.findViewById(R.id.txtHabDT);
         bonusTxt = root.findViewById(R.id.txtBonusDT);
         lasersTxt = root.findViewById(R.id.txtLasersDT);
-        geradoresTxt = root.findViewById(R.id.txtGeradoresDT);
+        generatorsTxt = root.findViewById(R.id.txtGeneratorsDT);
         extrasTxt = root.findViewById(R.id.txtExtrasDT);
-        modulosTxt = root.findViewById(R.id.txtModulosDT);
+        modulesTxt = root.findViewById(R.id.txtModulesDT);
         naveIv = root.findViewById(R.id.ivNaveDT);
 
         Intent i = this.getActivity().getIntent();
-        Integer title = i.getIntExtra("IDNAVE",0);
+        Integer title = i.getIntExtra("ID_NAVE",0);
 
-
-        Log.d("TESSSSSSSS", "Chamada REST retornou: "+title);
-
-        Call<Ships> call = mService.getNave(title);
+        Call<Ships> call = mService.getShip(title);
 
         call.enqueue(new Callback<Ships>() {
             @Override
@@ -62,27 +58,27 @@ public class ShipDetailsFragment extends Fragment {
 
                 if(response.isSuccessful()) {
 
-                    hpTxt.setText(response.body().getPontosHp().toString());
-                    velocTxt.setText(response.body().getVelocidade().toString());
-                    cargaTxt.setText(response.body().getCarga().toString());
-                    habTxt.setText(response.body().getTemHabilidade());
+                    hpTxt.setText(response.body().getPointsHp().toString());
+                    velocityTxt.setText(response.body().getVelocity().toString());
+                    cargoTxt.setText(response.body().getCargo().toString());
+                    habTxt.setText(response.body().getHasAbility());
                     bonusTxt.setText(response.body().getBonus());
-                    lasersTxt.setText(response.body().getSlotsLaser().toString());
-                    geradoresTxt.setText(response.body().getSlotsGeradores().toString());
+                    lasersTxt.setText(response.body().getSlotsLasers().toString());
+                    generatorsTxt.setText(response.body().getSlotsGenerators().toString());
                     extrasTxt.setText(response.body().getSlotsExtras().toString());
-                    modulosTxt.setText(response.body().getSlotsModulosNave().toString());
+                    modulesTxt.setText(response.body().getSlotsModulesShip().toString());
 
-                    Picasso.get().load(response.body().getImageNave()).into(naveIv);
+                    Picasso.get().load(response.body().getImageShip()).into(naveIv);
 
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<Ships> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST"+t);
+                Log.d("MainActivity", "Error in Call REST"+t);
             }
         });
 

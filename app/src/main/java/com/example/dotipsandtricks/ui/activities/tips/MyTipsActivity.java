@@ -25,7 +25,6 @@ import retrofit2.Response;
 
 public class MyTipsActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
     private PostService mService;
     private MyTipsAdapter mAdapter;
 
@@ -37,7 +36,7 @@ public class MyTipsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("My Tips");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mRecyclerView = findViewById(R.id.rvMyTips);
+        RecyclerView mRecyclerView = findViewById(R.id.rvMyTips);
         mAdapter = new MyTipsAdapter(this, new ArrayList<Tips>(0));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -49,7 +48,7 @@ public class MyTipsActivity extends AppCompatActivity {
         mService = ApiUtils.getPostService();
 
         Intent i=this.getIntent();
-        Integer id = i.getIntExtra("IDUSER",0);
+        Integer id = i.getIntExtra("ID_USER",0);
 
         returnTips(id);
     }
@@ -66,13 +65,13 @@ public class MyTipsActivity extends AppCompatActivity {
                     mAdapter.updateMyTips(response.body());
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Tips>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in Call REST");
             }
         });
     }
@@ -80,12 +79,8 @@ public class MyTipsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case android.R.id.home:
-
-                onBackPressed();
-
-                break;
+        if (id == android.R.id.home) {
+            onBackPressed();
         }
         return true;
     }

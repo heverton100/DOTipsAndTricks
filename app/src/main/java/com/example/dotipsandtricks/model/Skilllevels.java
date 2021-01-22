@@ -11,9 +11,9 @@ public class Skilllevels {
     @SerializedName("level_skill")
     @Expose
     private Integer levelSkill;
-    @SerializedName("valor_skill")
+    @SerializedName("value_skill")
     @Expose
-    private Integer valorSkill;
+    private Integer valueSkill;
 
     public Integer getIdSkill() {
         return idSkill;
@@ -31,12 +31,12 @@ public class Skilllevels {
         this.levelSkill = levelSkill;
     }
 
-    public Integer getValorSkill() {
-        return valorSkill;
+    public Integer getValueSkill() {
+        return valueSkill;
     }
 
-    public void setValorSkill(Integer valorSkill) {
-        this.valorSkill = valorSkill;
+    public void setValueSkill(Integer valueSkill) {
+        this.valueSkill = valueSkill;
     }
 
 }

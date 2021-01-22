@@ -5,71 +5,71 @@ import com.google.gson.annotations.SerializedName;
 
 public class Ships {
 
-    @SerializedName("id_nave")
+    @SerializedName("id_ship")
     @Expose
-    private Integer idNave;
-    @SerializedName("nome")
+    private Integer idShip;
+    @SerializedName("name_ship")
     @Expose
-    private String nome;
-    @SerializedName("descricao")
+    private String nameShip;
+    @SerializedName("description_ship")
     @Expose
-    private String descricao;
+    private String descriptionShip;
     @SerializedName("bonus")
     @Expose
     private String bonus;
-    @SerializedName("velocidade")
+    @SerializedName("velocity")
     @Expose
-    private Integer velocidade;
-    @SerializedName("carga")
+    private Integer velocity;
+    @SerializedName("cargo")
     @Expose
-    private Integer carga;
-    @SerializedName("pontos_hp")
+    private Integer cargo;
+    @SerializedName("points_hp")
     @Expose
-    private Integer pontosHp;
-    @SerializedName("slots_laser")
+    private Integer pointsHp;
+    @SerializedName("slots_lasers")
     @Expose
-    private Integer slotsLaser;
-    @SerializedName("slots_geradores")
+    private Integer slotsLasers;
+    @SerializedName("slots_generators")
     @Expose
-    private Integer slotsGeradores;
+    private Integer slotsGenerators;
     @SerializedName("slots_extras")
     @Expose
     private Integer slotsExtras;
-    @SerializedName("slots_modulos_nave")
+    @SerializedName("slots_modules_ship")
     @Expose
-    private Integer slotsModulosNave;
-    @SerializedName("image_nave")
+    private Integer slotsModulesShip;
+    @SerializedName("image_ship")
     @Expose
-    private String imageNave;
-    @SerializedName("tem_habilidade")
+    private String imageShip;
+    @SerializedName("has_ability")
     @Expose
-    private String temHabilidade;
-    @SerializedName("slots_lanca_misseis")
+    private String hasAbility;
+    @SerializedName("slots_missile_launcher")
     @Expose
-    private Integer slotsLancaMisseis;
+    private Integer slotsMissileLauncher;
 
-    public Integer getIdNave() {
-        return idNave;
+    public Integer getIdShip() {
+        return idShip;
     }
 
-    public void setIdNave(Integer idNave) {
-        this.idNave = idNave;
+    public void setIdShip(Integer idShip) {
+        this.idShip = idShip;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNameShip() {
+        return nameShip;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNameShip(String nameShip) {
+        this.nameShip = nameShip;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescriptionShip() {
+        return descriptionShip;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescriptionShip(String descriptionShip) {
+        this.descriptionShip = descriptionShip;
     }
 
     public String getBonus() {
@@ -80,44 +80,44 @@ public class Ships {
         this.bonus = bonus;
     }
 
-    public Integer getVelocidade() {
-        return velocidade;
+    public Integer getVelocity() {
+        return velocity;
     }
 
-    public void setVelocidade(Integer velocidade) {
-        this.velocidade = velocidade;
+    public void setVelocity(Integer velocity) {
+        this.velocity = velocity;
     }
 
-    public Integer getCarga() {
-        return carga;
+    public Integer getCargo() {
+        return cargo;
     }
 
-    public void setCarga(Integer carga) {
-        this.carga = carga;
+    public void setCargo(Integer cargo) {
+        this.cargo = cargo;
     }
 
-    public Integer getPontosHp() {
-        return pontosHp;
+    public Integer getPointsHp() {
+        return pointsHp;
     }
 
-    public void setPontosHp(Integer pontosHp) {
-        this.pontosHp = pontosHp;
+    public void setPointsHp(Integer pointsHp) {
+        this.pointsHp = pointsHp;
     }
 
-    public Integer getSlotsLaser() {
-        return slotsLaser;
+    public Integer getSlotsLasers() {
+        return slotsLasers;
     }
 
-    public void setSlotsLaser(Integer slotsLaser) {
-        this.slotsLaser = slotsLaser;
+    public void setSlotsLasers(Integer slotsLasers) {
+        this.slotsLasers = slotsLasers;
     }
 
-    public Integer getSlotsGeradores() {
-        return slotsGeradores;
+    public Integer getSlotsGenerators() {
+        return slotsGenerators;
     }
 
-    public void setSlotsGeradores(Integer slotsGeradores) {
-        this.slotsGeradores = slotsGeradores;
+    public void setSlotsGenerators(Integer slotsGenerators) {
+        this.slotsGenerators = slotsGenerators;
     }
 
     public Integer getSlotsExtras() {
@@ -128,36 +128,36 @@ public class Ships {
         this.slotsExtras = slotsExtras;
     }
 
-    public Integer getSlotsModulosNave() {
-        return slotsModulosNave;
+    public Integer getSlotsModulesShip() {
+        return slotsModulesShip;
     }
 
-    public void setSlotsModulosNave(Integer slotsModulosNave) {
-        this.slotsModulosNave = slotsModulosNave;
+    public void setSlotsModulesShip(Integer slotsModulesShip) {
+        this.slotsModulesShip = slotsModulesShip;
     }
 
-    public String getImageNave() {
-        return imageNave;
+    public String getImageShip() {
+        return imageShip;
     }
 
-    public void setImageNave(String imageNave) {
-        this.imageNave = imageNave;
+    public void setImageShip(String imageShip) {
+        this.imageShip = imageShip;
     }
 
-    public String getTemHabilidade() {
-        return temHabilidade;
+    public String getHasAbility() {
+        return hasAbility;
     }
 
-    public void setTemHabilidade(String temHabilidade) {
-        this.temHabilidade = temHabilidade;
+    public void setHasAbility(String hasAbility) {
+        this.hasAbility = hasAbility;
     }
 
-    public Integer getSlotsLancaMisseis() {
-        return slotsLancaMisseis;
+    public Integer getSlotsMissileLauncher() {
+        return slotsMissileLauncher;
     }
 
-    public void setSlotsLancaMisseis(Integer slotsLancaMisseis) {
-        this.slotsLancaMisseis = slotsLancaMisseis;
+    public void setSlotsMissileLauncher(Integer slotsMissileLauncher) {
+        this.slotsMissileLauncher = slotsMissileLauncher;
     }
 
 }

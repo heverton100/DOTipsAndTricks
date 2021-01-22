@@ -5,42 +5,42 @@ import com.google.gson.annotations.SerializedName;
 
 public class PointsPilot {
 
-    @SerializedName("ponto_pesquisa")
+    @SerializedName("research_point")
     @Expose
-    private String pontoPesquisa;
-    @SerializedName("qtdade_logs")
+    private String researchPoint;
+    @SerializedName("quantity_logs")
     @Expose
-    private Integer qtdadeLogs;
+    private Integer quantityLogs;
     @SerializedName("total_logs")
     @Expose
     private Integer totalLogs;
-    @SerializedName("custo_total")
+    @SerializedName("cost_total")
     @Expose
-    private String custoTotal;
-    @SerializedName("custo_com_desconto")
+    private String costTotal;
+    @SerializedName("cost_with_discount")
     @Expose
-    private String custoComDesconto;
-    @SerializedName("custo_com_premium")
+    private String costWithDiscount;
+    @SerializedName("cost_with_premium")
     @Expose
-    private String custoComPremium;
-    @SerializedName("custo_desconto_premium")
+    private String costWithPremium;
+    @SerializedName("cost_discount_premium")
     @Expose
-    private String custoDescontoPremium;
+    private String costDiscountPremium;
 
-    public String getPontoPesquisa() {
-        return pontoPesquisa;
+    public String getResearchPoint() {
+        return researchPoint;
     }
 
-    public void setPontoPesquisa(String pontoPesquisa) {
-        this.pontoPesquisa = pontoPesquisa;
+    public void setResearchPoint(String researchPoint) {
+        this.researchPoint = researchPoint;
     }
 
-    public Integer getQtdadeLogs() {
-        return qtdadeLogs;
+    public Integer getQuantityLogs() {
+        return quantityLogs;
     }
 
-    public void setQtdadeLogs(Integer qtdadeLogs) {
-        this.qtdadeLogs = qtdadeLogs;
+    public void setQuantityLogs(Integer quantityLogs) {
+        this.quantityLogs = quantityLogs;
     }
 
     public Integer getTotalLogs() {
@@ -51,36 +51,36 @@ public class PointsPilot {
         this.totalLogs = totalLogs;
     }
 
-    public String getCustoTotal() {
-        return custoTotal;
+    public String getCostTotal() {
+        return costTotal;
     }
 
-    public void setCustoTotal(String custoTotal) {
-        this.custoTotal = custoTotal;
+    public void setCostTotal(String costTotal) {
+        this.costTotal = costTotal;
     }
 
-    public String getCustoComDesconto() {
-        return custoComDesconto;
+    public String getCostWithDiscount() {
+        return costWithDiscount;
     }
 
-    public void setCustoComDesconto(String custoComDesconto) {
-        this.custoComDesconto = custoComDesconto;
+    public void setCostWithDiscount(String costWithDiscount) {
+        this.costWithDiscount = costWithDiscount;
     }
 
-    public String getCustoComPremium() {
-        return custoComPremium;
+    public String getCostWithPremium() {
+        return costWithPremium;
     }
 
-    public void setCustoComPremium(String custoComPremium) {
-        this.custoComPremium = custoComPremium;
+    public void setCostWithPremium(String costWithPremium) {
+        this.costWithPremium = costWithPremium;
     }
 
-    public String getCustoDescontoPremium() {
-        return custoDescontoPremium;
+    public String getCostDiscountPremium() {
+        return costDiscountPremium;
     }
 
-    public void setCustoDescontoPremium(String custoDescontoPremium) {
-        this.custoDescontoPremium = custoDescontoPremium;
+    public void setCostDiscountPremium(String costDiscountPremium) {
+        this.costDiscountPremium = costDiscountPremium;
     }
 
 }

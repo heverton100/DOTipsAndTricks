@@ -32,17 +32,18 @@ import retrofit2.Response;
 
 public class LogDiskCostChartFragment extends Fragment {
 
-    private RecyclerView mRecyclerView;
     private PostService mService;
     private LogDiskCostChartAdapter mAdapter;
+
+    public FloatingActionButton fab;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_log_disk_cost_chart, container, false);
+        final View root = inflater.inflate(R.layout.fragment_log_disk_cost_chart, container, false);
 
-        mRecyclerView = root.findViewById(R.id.rvPontosPesquisa);
+        RecyclerView mRecyclerView = root.findViewById(R.id.rvResearchPoints);
         mAdapter = new LogDiskCostChartAdapter(this.getContext(), new ArrayList<PointsPilot>(0));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
@@ -56,11 +57,23 @@ public class LogDiskCostChartFragment extends Fragment {
 
         loadPPs();
 
-        FloatingActionButton fab = root.findViewById(R.id.floatingActionButton);
+        fab = root.findViewById(R.id.floatingActionButton);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showTextDialog();
+            }
+        });
+
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(dy > 0){
+                    fab.setVisibility(View.GONE);
+                } else {
+                    fab.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -79,13 +92,13 @@ public class LogDiskCostChartFragment extends Fragment {
                     mAdapter.updatePPs(response.body());
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<PointsPilot>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in Call REST");
             }
         });
     }
@@ -103,8 +116,8 @@ public class LogDiskCostChartFragment extends Fragment {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String teste = input.getText().toString();
-                loadPPsFiltro(teste);
+                String txtTest = input.getText().toString();
+                loadPPsFilter(txtTest);
 
             }
         });
@@ -118,9 +131,9 @@ public class LogDiskCostChartFragment extends Fragment {
         builder.show();
     }
 
-    private void loadPPsFiltro(String i) {
+    private void loadPPsFilter(String i) {
 
-        Call<List<PointsPilot>> call = mService.getPPfiltro(i);
+        Call<List<PointsPilot>> call = mService.getPPfilter(i);
 
         call.enqueue(new Callback<List<PointsPilot>>() {
             @Override
@@ -130,13 +143,13 @@ public class LogDiskCostChartFragment extends Fragment {
                     mAdapter.updatePPs(response.body());
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<PointsPilot>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in Call REST");
             }
         });
     }

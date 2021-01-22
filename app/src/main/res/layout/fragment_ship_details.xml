@@ -19,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logodark2" />
+            app:srcCompat="@drawable/logo_dark2" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -124,13 +124,13 @@
                         android:padding="2dp">
 
                         <TextView
-                            android:id="@+id/lblCarga"
+                            android:id="@+id/lblCargo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/label_nave_details_cargo" />
 
                         <TextView
-                            android:id="@+id/txtCargaDT"
+                            android:id="@+id/txtCargoDT"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/label_txt"
@@ -252,7 +252,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cvGeradores"
+                    android:id="@+id/cvGenerators"
                     android:layout_width="150dp"
                     android:layout_height="match_parent"
                     app:cardBackgroundColor="#CFCFCF"
@@ -266,13 +266,13 @@
                         android:padding="2dp">
 
                         <TextView
-                            android:id="@+id/lblGeradores"
+                            android:id="@+id/lblGenerators"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/label_nave_details_generators" />
 
                         <TextView
-                            android:id="@+id/txtGeradoresDT"
+                            android:id="@+id/txtGeneratorsDT"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/label_txt"
@@ -342,7 +342,7 @@
                             android:text="@string/label_nave_details_modules" />
 
                         <TextView
-                            android:id="@+id/txtModulosDT"
+                            android:id="@+id/txtModulesDT"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/label_txt"

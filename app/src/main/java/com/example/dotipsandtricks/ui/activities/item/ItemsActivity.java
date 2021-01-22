@@ -22,7 +22,6 @@ import retrofit2.Response;
 
 public class ItemsActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
     private PostService mService;
     private ItemsAdapter mAdapter;
 
@@ -31,7 +30,7 @@ public class ItemsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
 
-        mRecyclerView = findViewById(R.id.rvItens);
+        RecyclerView mRecyclerView = findViewById(R.id.rvItems);
         mAdapter = new ItemsAdapter(this, new ArrayList<Items>(0));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -42,19 +41,19 @@ public class ItemsActivity extends AppCompatActivity {
         mService = ApiUtils.getPostService();
 
         Intent i=this.getIntent();
-        Integer title = i.getIntExtra("IDCATEGORIA",0);
-        String x = i.getStringExtra("NOMECATEGORIA");
+        Integer title = i.getIntExtra("ID_CATEGORY",0);
+        String x = i.getStringExtra("NAME_CATEGORY");
 
         getSupportActionBar().setTitle(x);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        loadItens(title);
+        loadItems(title);
     }
 
 
-    private void loadItens(Integer i) {
+    private void loadItems(Integer i) {
 
-        Call<List<Items>> call = mService.getItens(i);
+        Call<List<Items>> call = mService.getItems(i);
 
         call.enqueue(new Callback<List<Items>>() {
             @Override
@@ -62,17 +61,17 @@ public class ItemsActivity extends AppCompatActivity {
 
                 if(response.isSuccessful())
                 {
-                    mAdapter.updateItens(response.body());
-                    Log.d("MainActivity", "Retornou com sucesso");
+                    mAdapter.updateItems(response.body());
+                    Log.d("MainActivity", "Success.");
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<Items>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in call REST");
             }
         });
 
@@ -81,12 +80,8 @@ public class ItemsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case android.R.id.home:
-
-                onBackPressed();
-
-                break;
+        if (id == android.R.id.home) {
+            onBackPressed();
         }
         return true;
     }

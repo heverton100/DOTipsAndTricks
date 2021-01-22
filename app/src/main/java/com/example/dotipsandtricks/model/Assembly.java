@@ -7,15 +7,15 @@ public class Assembly {
     @SerializedName("id_item")
     @Expose
     private Integer idItem;
-    @SerializedName("quantidade")
+    @SerializedName("quantity")
     @Expose
-    private Integer quantidade;
-    @SerializedName("nome_item")
+    private Integer quantity;
+    @SerializedName("name_item")
     @Expose
-    private String nomeItem;
-    @SerializedName("descricao_item")
+    private String nameItem;
+    @SerializedName("description_item")
     @Expose
-    private String descricaoItem;
+    private String descriptionItem;
     @SerializedName("url_image_item")
     @Expose
     private String urlImageItem;
@@ -28,28 +28,28 @@ public class Assembly {
         this.idItem = idItem;
     }
 
-    public Integer getQuantidade() {
-        return quantidade;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
-    public String getNomeItem() {
-        return nomeItem;
+    public String getNameItem() {
+        return nameItem;
     }
 
-    public void setNomeItem(String nomeItem) {
-        this.nomeItem = nomeItem;
+    public void setNameItem(String nameItem) {
+        this.nameItem = nameItem;
     }
 
-    public String getDescricaoItem() {
-        return descricaoItem;
+    public String getDescriptionItem() {
+        return descriptionItem;
     }
 
-    public void setDescricaoItem(String descricaoItem) {
-        this.descricaoItem = descricaoItem;
+    public void setDescriptionItem(String descriptionItem) {
+        this.descriptionItem = descriptionItem;
     }
 
     public String getUrlImageItem() {

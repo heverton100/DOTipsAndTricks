@@ -11,9 +11,9 @@ public class Skilltree {
     @SerializedName("name_skill")
     @Expose
     private String nameSkill;
-    @SerializedName("descricao_skill")
+    @SerializedName("description_skill")
     @Expose
-    private String descricaoSkill;
+    private String descriptionSkill;
     @SerializedName("type_skill")
     @Expose
     private String typeSkill;
@@ -40,13 +40,14 @@ public class Skilltree {
         this.nameSkill = nameSkill;
     }
 
-    public String getDescricaoSkill() {
-        return descricaoSkill;
+    public String getDescriptionSkill() {
+        return descriptionSkill;
     }
 
-    public void setDescricaoSkill(String descricaoSkill) {
-        this.descricaoSkill = descricaoSkill;
+    public void setDescriptionSkill(String descriptionSkill) {
+        this.descriptionSkill = descriptionSkill;
     }
+
 
     public String getTypeSkill() {
         return typeSkill;

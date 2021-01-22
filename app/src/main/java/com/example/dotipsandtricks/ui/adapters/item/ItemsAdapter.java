@@ -20,11 +20,11 @@ import java.util.List;
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> {
 
     Context mContext;
-    private List<Items> mItens;
+    private List<Items> mItems;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public TextView txtTitle,txtTipo;
+        public TextView txtTitle, txtType;
         public ImageView imageViewItem;
         ItemClickListener itemClickListener;
 
@@ -33,7 +33,7 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
             super(itemView);
             txtTitle = itemView.findViewById(R.id.tvItemName);
             imageViewItem = itemView.findViewById(R.id.ivItem);
-            txtTipo = itemView.findViewById(R.id.tvDanoBase);
+            txtType = itemView.findViewById(R.id.tvDamageBase);
 
             itemView.setOnClickListener(this);
         }
@@ -49,8 +49,8 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
         }
     }
 
-    public ItemsAdapter(Context context, List<Items> itens) {
-        mItens = itens;
+    public ItemsAdapter(Context context, List<Items> items) {
+        mItems = items;
         mContext = context;
     }
 
@@ -69,42 +69,42 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(ItemsAdapter.ViewHolder holder, int position) {
 
-        final Items itens = mItens.get(position);
+        final Items items = mItems.get(position);
         TextView textView = holder.txtTitle;
-        textView.setText(itens.getNomeItem());
+        textView.setText(items.getNameItem());
 
         ImageView iv = holder.imageViewItem;
-        Picasso.get().load(itens.getUrlImageItem()).into(iv);
+        Picasso.get().load(items.getUrlImageItem()).into(iv);
 
-        if (itens.getIdCategoria() == 11){
-            TextView txTipo = holder.txtTipo;
-            txTipo.setText("Dano Base: "+itens.getDanoBaseLasers());
+        if (items.getIdCategory() == 11){
+            TextView txType = holder.txtType;
+            txType.setText("Damage Base: "+items.getDamageBaseLasers());
         }else{
-            TextView txTipo = holder.txtTipo;
-            txTipo.setVisibility(View.GONE);
+            TextView txType = holder.txtType;
+            txType.setVisibility(View.GONE);
         }
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick(int pos) {
-                openDetailItemActivity(itens.getIdItem().toString());
+                openDetailItemActivity(items.getIdItem().toString());
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return mItens.size();
+        return mItems.size();
     }
 
-    public void updateItens(List<Items> itens) {
-        mItens = itens;
+    public void updateItems(List<Items> items) {
+        mItems = items;
         notifyDataSetChanged();
     }
 
     public void openDetailItemActivity(String x) {
         Intent i=new Intent(mContext, ItemDetailsActivity.class);
-        i.putExtra("IDITEM", Integer.parseInt(x));
+        i.putExtra("ID_ITEM", Integer.parseInt(x));
         mContext.startActivity(i);
     }
 

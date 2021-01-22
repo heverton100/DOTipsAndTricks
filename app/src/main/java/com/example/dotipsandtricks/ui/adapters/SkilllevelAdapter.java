@@ -55,9 +55,9 @@ public class SkilllevelAdapter extends RecyclerView.Adapter<SkilllevelAdapter.Vi
         TextView txskname = holder.txtSkName;
 
         if(skilllevel.getIdSkill() == 0 || skilllevel.getIdSkill() == 4){
-            txskname.setText("Level: "+skilllevel.getLevelSkill().toString()+" | Value: "+skilllevel.getValorSkill().toString()+" HP");
+            txskname.setText("Level: "+skilllevel.getLevelSkill().toString()+" | Value: "+skilllevel.getValueSkill().toString()+" HP");
         }else{
-            txskname.setText("Level: "+skilllevel.getLevelSkill().toString()+" | Value: "+skilllevel.getValorSkill().toString()+"%");
+            txskname.setText("Level: "+skilllevel.getLevelSkill().toString()+" | Value: "+skilllevel.getValueSkill().toString()+"%");
         }
 
     }

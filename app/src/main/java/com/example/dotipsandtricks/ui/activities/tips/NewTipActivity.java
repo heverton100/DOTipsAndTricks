@@ -74,7 +74,7 @@ public class NewTipActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String cat = spin.getSelectedItem().toString();
                 String cont = inputCont.getText().toString();
-                Integer id = retornaIDuser();
+                Integer id = returnIDuser();
 
                 String image = returnUrl();
 
@@ -104,7 +104,7 @@ public class NewTipActivity extends AppCompatActivity {
         iv = findViewById(R.id.ivPreview);
     }
 
-    public Integer retornaIDuser(){
+    public Integer returnIDuser(){
         int id;
         SharedPreferences prefs = this.getSharedPreferences("user", Context.MODE_PRIVATE);
         id = prefs.getInt("userid",0);
@@ -128,7 +128,7 @@ public class NewTipActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(@NonNull Call<Tips> call, @NonNull Throwable t) {
-                Log.e("TESTTTTT", "Unable to submit post to API." + t.getMessage());
+                Log.e("LOG ERROR", "Unable to submit post to API." + t.getMessage());
             }
         });
     }
@@ -136,12 +136,8 @@ public class NewTipActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case android.R.id.home:
-
-                onBackPressed();
-
-                break;
+        if (id == android.R.id.home) {
+            onBackPressed();
         }
         return true;
     }

@@ -4,8 +4,8 @@
 
     <group android:checkableBehavior="none">
         <item
-            android:id="@+id/menuTodosSkill"
-            android:title="All"
+            android:id="@+id/menuAllSkill"
+            android:title="@string/menu_all"
             app:showAsAction="never" />
         <item
             android:id="@+id/menuSkillOffensive"

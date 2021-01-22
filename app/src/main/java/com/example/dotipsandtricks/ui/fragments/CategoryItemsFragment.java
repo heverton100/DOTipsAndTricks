@@ -24,7 +24,6 @@ import retrofit2.Response;
 
 public class CategoryItemsFragment extends Fragment {
 
-    private RecyclerView mRecyclerView;
     private CategoryItemsAdapter mAdapter;
     private PostService mService;
 
@@ -33,7 +32,7 @@ public class CategoryItemsFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_category_items, container, false);
 
-        mRecyclerView = root.findViewById(R.id.rvCategoriasItens);
+        RecyclerView mRecyclerView = root.findViewById(R.id.rvCategoriesItems);
         mAdapter = new CategoryItemsAdapter(this.getContext(), new ArrayList<CategoryItem>(0));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
@@ -43,30 +42,30 @@ public class CategoryItemsFragment extends Fragment {
 
         mService = ApiUtils.getPostService();
 
-        loadCategorias();
+        loadCategories();
 
         return root;
     }
 
-    private void loadCategorias() {
+    private void loadCategories() {
 
-        Call<List<CategoryItem>> call = mService.getCategorias();
+        Call<List<CategoryItem>> call = mService.getCategories();
 
         call.enqueue(new Callback<List<CategoryItem>>() {
             @Override
             public void onResponse(@NonNull Call<List<CategoryItem>> call, @NonNull Response<List<CategoryItem>> response) {
 
                 if(response.isSuccessful()) {
-                    mAdapter.updateCategorias(response.body());
+                    mAdapter.updateCategories(response.body());
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<CategoryItem>> call, @NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in call REST");
             }
         });
     }

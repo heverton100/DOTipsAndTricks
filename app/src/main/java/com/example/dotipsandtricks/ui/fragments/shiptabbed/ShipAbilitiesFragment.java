@@ -28,9 +28,7 @@ import retrofit2.Response;
 
 public class ShipAbilitiesFragment extends Fragment {
 
-    private PostService mService;
-    private RecyclerView mRecyclerView;
-    ShipAbilityAdapter adapter;
+    ShipAbilityAdapter mAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,19 +36,19 @@ public class ShipAbilitiesFragment extends Fragment {
         // Inflate the layout for this fragment
         final View root =  inflater.inflate(R.layout.fragment_ship_abilities, container, false);
 
-        mRecyclerView = root.findViewById(R.id.rvShipAbilities);
-        adapter = new ShipAbilityAdapter(this.getContext(), new ArrayList<ShipAbilities>(0));
+        RecyclerView mRecyclerView = root.findViewById(R.id.rvShipAbilities);
+        mAdapter = new ShipAbilityAdapter(this.getContext(), new ArrayList<ShipAbilities>(0));
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this.getContext());
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
 
 
-        mService = ApiUtils.getPostService();
+        PostService mService = ApiUtils.getPostService();
 
         Intent i=this.getActivity().getIntent();
-        Integer ship = i.getIntExtra("IDNAVE",0);
+        Integer ship = i.getIntExtra("ID_NAVE",0);
 
         Call<List<ShipAbilities>> call = mService.getAbilities(ship);
 
@@ -60,21 +58,19 @@ public class ShipAbilitiesFragment extends Fragment {
 
                 if(response.isSuccessful()) {
 
-                    if (response.body().get(0).getAbilityName().equals("TESTE")) {
-                        //Toast.makeText(root.getContext(),"This ship does not have ability!",Toast.LENGTH_SHORT).show();
-                    }else{
-                        adapter.updateAbilities(response.body());
+                    if (!response.body().get(0).getAbilityName().equals("TESTE")) {
+                        mAdapter.updateAbilities(response.body());
                     }
 
                 }else {
                     int statusCode = response.code();
-                    Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                    Log.d("MainActivity", "Call REST return: "+statusCode);
                 }
             }
 
             @Override
             public void onFailure(@NonNull Call<List<ShipAbilities>> call,@NonNull Throwable t) {
-                Log.d("MainActivity", "Erro na chamada REST");
+                Log.d("MainActivity", "Error in Call REST");
             }
         });
 

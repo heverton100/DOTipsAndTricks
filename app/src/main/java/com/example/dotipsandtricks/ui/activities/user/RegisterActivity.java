@@ -34,18 +34,18 @@ public class RegisterActivity extends AppCompatActivity {
 
         mService = ApiUtils.getPostService();
 
-        final EditText usermail = findViewById(R.id.userEmailR);
-        final EditText userpass = findViewById(R.id.userPassR);
-        final EditText userpass2 = findViewById(R.id.userPassR2);
+        final EditText user_mail = findViewById(R.id.userEmailR);
+        final EditText user_pass = findViewById(R.id.userPassR);
+        final EditText user_pass2 = findViewById(R.id.userPassR2);
         final EditText username = findViewById(R.id.userNameR);
         Button btnRegister = findViewById(R.id.btnRegister);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String email = usermail.getText().toString().trim();
-                final String pass = userpass.getText().toString().trim();
-                final String pass2 = userpass2.getText().toString().trim();
+                final String email = user_mail.getText().toString().trim();
+                final String pass = user_pass.getText().toString().trim();
+                final String pass2 = user_pass2.getText().toString().trim();
                 final String name = username.getText().toString().trim();
 
                 if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass) && !TextUtils.isEmpty(name)) {
@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(@NonNull Call<Users> call, @NonNull Throwable t) {
-                                Log.e("TESTTTTT", "Unable to submit post to API." + t);
+                                Log.e("LOG ERROR", "Unable to submit post to API." + t);
                             }
                         });
                     }else {

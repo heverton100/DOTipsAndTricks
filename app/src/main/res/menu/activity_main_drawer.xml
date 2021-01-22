@@ -27,9 +27,9 @@
                 android:icon="@drawable/ic_baseline_layers_24"
                 android:title="@string/menu_modulo" />
             <item
-                android:id="@+id/nav_itens"
+                android:id="@+id/nav_items"
                 android:icon="@drawable/ic_baseline_view_list_24"
-                android:title="@string/menu_itens" />
+                android:title="@string/menu_items" />
         </menu>
     </item>
 

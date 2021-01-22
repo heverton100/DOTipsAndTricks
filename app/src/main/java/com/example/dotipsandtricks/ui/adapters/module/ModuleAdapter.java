@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder> {
 
     Context mContext;
-    private List<Modules> mModulos;
+    private List<Modules> mModules;
 
     List<Ships> naves;
 
@@ -39,7 +39,7 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView txtTitle,txtTipo,txtDescricaoModulo;
+        public TextView txtTitle, txtType, txtDescModule;
         Button arrowBtn;
         ConstraintLayout expandableView;
         CardView cardView;
@@ -52,8 +52,8 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
             super(itemView);
             txtTitle = itemView.findViewById(R.id.tvModulo);
             imageViewModulo = itemView.findViewById(R.id.ivModulo);
-            txtTipo = itemView.findViewById(R.id.tvTipo);
-            txtDescricaoModulo = itemView.findViewById(R.id.tvDescricaoModulo);
+            txtType = itemView.findViewById(R.id.tvType);
+            txtDescModule = itemView.findViewById(R.id.tvDescModulo);
             arrowBtn = itemView.findViewById(R.id.arrowBtn);
             expandableView = itemView.findViewById(R.id.expandableView);
             cardView = itemView.findViewById(R.id.cardViewModulo);
@@ -62,8 +62,8 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
         }
     }
 
-    public ModuleAdapter(Context context, List<Modules> modulos) {
-        mModulos = modulos;
+    public ModuleAdapter(Context context, List<Modules> modules) {
+        mModules = modules;
         mContext = context;
     }
 
@@ -84,18 +84,18 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
 
         mService = ApiUtils.getPostService();
 
-        final Modules modulo = mModulos.get(position);
+        final Modules module = mModules.get(position);
         TextView textView = holder.txtTitle;
-        textView.setText(modulo.getNomeModulo());
+        textView.setText(module.getNameModule());
 
-        TextView txTipo = holder.txtTipo;
-        txTipo.setText(modulo.getTipoModulo());
+        TextView txType = holder.txtType;
+        txType.setText(module.getTypeModule());
 
-        TextView txDescMod = holder.txtDescricaoModulo;
-        txDescMod.setText(modulo.getDescricaoModulo());
+        TextView txDescMod = holder.txtDescModule;
+        txDescMod.setText(module.getDescriptionModule());
 
         ImageView iv = holder.imageViewModulo;
-        Picasso.get().load(modulo.getImageModulo()).into(iv);
+        Picasso.get().load(module.getImageModule()).into(iv);
 
         final ConstraintLayout cl = holder.expandableView;
         final Button btnArrow = holder.arrowBtn;
@@ -106,15 +106,13 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
             @Override
             public void onClick(View v) {
 
-                Log.d("TESSSSTEE", "Chamada REST retornou: "+ position);
-
                 if (cl.getVisibility()==View.GONE){
 
                     TransitionManager.beginDelayedTransition(cv, new AutoTransition());
                     cl.setVisibility(View.VISIBLE);
                     btnArrow.setBackgroundResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
 
-                    Call<List<Ships>> call = mService.getModuloNaves(modulo.getIdModulo());
+                    Call<List<Ships>> call = mService.getModuleShips(module.getIdModule());
 
                     call.enqueue(new Callback<List<Ships>>() {
                         @Override
@@ -122,17 +120,17 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
 
                             if(response.isSuccessful()) {
                                 naves = response.body();
-                                shipsModuleAdapter = new ModuleShipsAdapter(mContext, R.layout.cell_modules_ship, naves);
+                                shipsModuleAdapter = new ModuleShipsAdapter(mContext, R.layout.cell_ship_modules, naves);
                                 listView.setAdapter(shipsModuleAdapter);
                             }else {
                                 int statusCode = response.code();
-                                Log.d("MainActivity", "Chamada REST retornou: "+statusCode);
+                                Log.d("MainActivity", "Call REST return: "+statusCode);
                             }
                         }
 
                         @Override
                         public void onFailure(@NonNull Call<List<Ships>> call, @NonNull Throwable t) {
-                            Log.d("MainActivity", "Erro na chamada REST");
+                            Log.d("MainActivity", "Error in Call REST");
                         }
                     });
 
@@ -147,11 +145,11 @@ public class ModuleAdapter extends RecyclerView.Adapter<ModuleAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return mModulos.size();
+        return mModules.size();
     }
 
-    public void updateModulos(List<Modules> modulos) {
-        mModulos = modulos;
+    public void updateModules(List<Modules> modules) {
+        mModules = modules;
         notifyDataSetChanged();
     }
 

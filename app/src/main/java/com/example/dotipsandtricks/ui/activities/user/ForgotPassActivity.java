@@ -36,17 +36,17 @@ public class ForgotPassActivity extends AppCompatActivity {
 
         mService = ApiUtils.getPostService();
 
-        final EditText usermail = findViewById(R.id.userEmailF);
-        final EditText userpass = findViewById(R.id.userPassF);
-        final EditText userpass2 = findViewById(R.id.userPassF2);
+        final EditText user_mail = findViewById(R.id.userEmailF);
+        final EditText user_pass = findViewById(R.id.userPassF);
+        final EditText user_pass2 = findViewById(R.id.userPassF2);
         Button btnForgotPass = findViewById(R.id.btnForgotPass);
 
         btnForgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String email = usermail.getText().toString().trim();
-                final String pass = userpass.getText().toString().trim();
-                final String pass2 = userpass2.getText().toString().trim();
+                final String email = user_mail.getText().toString().trim();
+                final String pass = user_pass.getText().toString().trim();
+                final String pass2 = user_pass2.getText().toString().trim();
 
                 if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(pass) && !TextUtils.isEmpty(pass2)) {
                     if(pass.equals(pass2)) {
@@ -66,7 +66,7 @@ public class ForgotPassActivity extends AppCompatActivity {
 
                             @Override
                             public void onFailure(@NonNull Call<Users> call, @NonNull Throwable t) {
-                                Log.e("TESTTTTT", "Unable to submit post to API." + t);
+                                Log.e("LOG ERROR", "Unable to submit post to API." + t);
                             }
                         });
                     }else {
@@ -84,12 +84,8 @@ public class ForgotPassActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
-            case android.R.id.home:
-
-                onBackPressed();
-
-                break;
+        if (id == android.R.id.home) {
+            onBackPressed();
         }
         return true;
     }
